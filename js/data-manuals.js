@@ -20,8 +20,8 @@ const SECTION_CATEGORIES = [
 // Seções específicas para o Clube Ursinho (além das padrões)
 const URSINHO_CATEGORIES = [
   { id: "pi_ursinho", label: "Prova de Ingresso Ursinho", items: [
-    { num: 1, label: "Seção A", val: 0.5 },
-    { num: 2, label: "Seção B", val: 1.0 }
+    { num: 1, label: "PI Seção A", val: 0.5 },
+    { num: 2, label: "PI Seção B", val: 1.0 }
   ]},
   { id: "abraco", label: "Abraço do Ursinho (1 ao 24)", max: 24, short: "Abraço", legend: "Abraço do Ursinho" },
   { id: "dia_especial", label: "Dia Especial (1 ao 6)", max: 6, short: "Dia Esp.", legend: "Dia Especial" }
@@ -35,12 +35,41 @@ const MANUALS_RULES = {
     clubId: "ursinho",
     defaultVal: 0.5,
     custom: {
-      "pi_ursinho_1": 0.5, // Seção A
-      "pi_ursinho_2": 1.0, // Seção B
-      "abraco_3": 1.0,
-      "abraco_10": 1.0,
-      // todas as outras do abraço 1..24 padrão 0.5
-      // dia_especial 1..6 padrão 0.5
+      // Prova de Ingresso
+      "pi_ursinho_1": 0.5, // PI Seção A - T$0.5
+      "pi_ursinho_2": 1.0, // PI Seção B - T$1.0
+      // Abraço do Ursinho (1 ao 24)
+      "abraco_1": 0.5,
+      "abraco_2": 0.5,
+      "abraco_3": 1.0,     // Seção 3 - T$1.0
+      "abraco_4": 0.5,
+      "abraco_5": 0.5,
+      "abraco_6": 0.5,
+      "abraco_7": 0.5,
+      "abraco_8": 0.5,
+      "abraco_9": 0.5,
+      "abraco_10": 1.0,    // Seção 10 - T$1.0
+      "abraco_11": 0.5,
+      "abraco_12": 0.5,
+      "abraco_13": 0.5,
+      "abraco_14": 0.5,
+      "abraco_15": 0.5,
+      "abraco_16": 0.5,
+      "abraco_17": 0.5,
+      "abraco_18": 0.5,
+      "abraco_19": 0.5,
+      "abraco_20": 0.5,
+      "abraco_21": 0.5,
+      "abraco_22": 0.5,
+      "abraco_23": 0.5,
+      "abraco_24": 0.5,
+      // Dia Especial (1 ao 6)
+      "dia_especial_1": 0.5,
+      "dia_especial_2": 0.5,
+      "dia_especial_3": 0.5,
+      "dia_especial_4": 0.5,
+      "dia_especial_5": 0.5,
+      "dia_especial_6": 0.5
     }
   },
   "ursinho_alegria": {
@@ -48,12 +77,38 @@ const MANUALS_RULES = {
     clubId: "ursinho",
     defaultVal: 0.5,
     custom: {
+      // Abraço do Ursinho (1 ao 24)
       "abraco_1": 0.5,
       "abraco_2": 0.5,
-      "abraco_3": 1.0,
-      "abraco_4": 2.0,
-      "abraco_5": 1.5,
-      // outras 0.5
+      "abraco_3": 1.0,     // Seção 3 - T$1.0
+      "abraco_4": 2.0,     // Seção 4 - T$2.0
+      "abraco_5": 1.5,     // Seção 5 - T$1.5
+      "abraco_6": 0.5,
+      "abraco_7": 0.5,
+      "abraco_8": 0.5,
+      "abraco_9": 0.5,
+      "abraco_10": 0.5,
+      "abraco_11": 0.5,
+      "abraco_12": 0.5,
+      "abraco_13": 0.5,
+      "abraco_14": 0.5,
+      "abraco_15": 0.5,
+      "abraco_16": 0.5,
+      "abraco_17": 0.5,
+      "abraco_18": 0.5,
+      "abraco_19": 0.5,
+      "abraco_20": 0.5,
+      "abraco_21": 0.5,
+      "abraco_22": 0.5,
+      "abraco_23": 0.5,
+      "abraco_24": 0.5,
+      // Dia Especial (1 ao 6)
+      "dia_especial_1": 0.5,
+      "dia_especial_2": 0.5,
+      "dia_especial_3": 0.5,
+      "dia_especial_4": 0.5,
+      "dia_especial_5": 0.5,
+      "dia_especial_6": 0.5
     }
   },
 

@@ -959,7 +959,13 @@ class OansistasManager {
     const freqPercent = totalRegistros > 0 ? Math.round((totalPresencas / totalRegistros) * 100) : 100;
 
     const isUrsinho = oan.club === "ursinho";
-    const categoriesToRender = isUrsinho ? URSINHO_CATEGORIES : SECTION_CATEGORIES;
+    let categoriesToRender = isUrsinho ? URSINHO_CATEGORIES : SECTION_CATEGORIES;
+    if (isUrsinho && oan.manual === "ursinho_alegria") {
+      const hasPiDone = oan.sections && oan.sections.pi_ursinho && oan.sections.pi_ursinho.length > 0;
+      if (!hasPiDone) {
+        categoriesToRender = URSINHO_CATEGORIES.filter(c => c.id !== "pi_ursinho");
+      }
+    }
 
     // Card cinza padrão para líderes de todos os clubes conforme solicitado
     const cardBorderBg = isLider
@@ -1266,8 +1272,11 @@ class OansistasManager {
     let buttonsHtml = "";
     if (cat.items) {
       // PI Ursinho (A, B)
+      const manualKey = oan.manual || (oan.club === "ursinho" ? "ursinho_amor" : `${oan.club}_default`);
       buttonsHtml = cat.items.map(it => {
         const isDone = completedNumbers.includes(it.num);
+        const sectionKey = `${cat.id}_${it.num}`;
+        const val = getSectionTalentValue(manualKey, sectionKey);
         return `
           <button onclick="oansistasManager.toggleSectionNumber('${oan.id}', '${cat.id}', ${it.num})" class="px-3 py-1.5 text-xs font-bold rounded-xl border transition flex items-center justify-between gap-2 ${
             isDone 
@@ -1275,7 +1284,7 @@ class OansistasManager {
               : 'bg-white dark:bg-slate-700 text-slate-700 dark:text-slate-200 border-slate-200 dark:border-slate-600 hover:border-emerald-500'
           }">
             <span>${it.label}</span>
-            <span class="text-[10px] opacity-90 font-mono">+${it.val}T$</span>
+            <span class="text-[10px] opacity-90 font-mono">+${val}T$</span>
           </button>
         `;
       }).join("");
