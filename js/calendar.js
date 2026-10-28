@@ -91,30 +91,30 @@ class OanseCalendar {
     if (!container) return;
 
     container.innerHTML = `
-      <div class="flex items-center justify-between bg-white dark:bg-slate-800 p-4 rounded-2xl shadow-sm border border-slate-200 dark:border-slate-700">
-        <div class="flex items-center space-x-3">
-          <button id="calPrevMonthBtn" class="p-2.5 rounded-xl bg-slate-100 hover:bg-slate-200 dark:bg-slate-700 dark:hover:bg-slate-600 transition font-bold text-slate-700 dark:text-slate-200 flex items-center justify-center">
+      <div class="flex flex-col sm:flex-row items-stretch sm:items-center justify-between gap-3 bg-white dark:bg-slate-800 p-3.5 sm:p-4 rounded-2xl shadow-sm border border-slate-200 dark:border-slate-700">
+        <div class="flex items-center space-x-2.5">
+          <button id="calPrevMonthBtn" class="p-2 sm:p-2.5 rounded-xl bg-slate-100 hover:bg-slate-200 dark:bg-slate-700 dark:hover:bg-slate-600 transition font-bold text-slate-700 dark:text-slate-200 flex items-center justify-center shrink-0">
             <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 19l-7-7 7-7"/></svg>
           </button>
+          <button id="calNextMonthBtn" class="p-2 sm:p-2.5 rounded-xl bg-slate-100 hover:bg-slate-200 dark:bg-slate-700 dark:hover:bg-slate-600 transition font-bold text-slate-700 dark:text-slate-200 flex items-center justify-center shrink-0">
+            <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"/></svg>
+          </button>
           <div>
-            <h3 class="text-xl font-black text-slate-800 dark:text-white flex items-center gap-2">
+            <h3 class="text-lg sm:text-xl font-black text-slate-800 dark:text-white flex items-center gap-1.5 sm:gap-2">
               <span id="calCurrentMonthTitle">${MONTH_NAMES[this.currentMonth]}</span>
-              <span class="text-blue-600 bg-blue-50 dark:bg-blue-900/40 text-sm px-2.5 py-0.5 rounded-full font-bold">2027</span>
+              <span class="text-blue-600 bg-blue-50 dark:bg-blue-900/40 text-xs sm:text-sm px-2 sm:px-2.5 py-0.5 rounded-full font-bold">2027</span>
             </h3>
-            <p class="text-xs text-slate-500 dark:text-slate-400">Reuniões aos Sábados • Igreja Batista Regular Maanaim</p>
+            <p class="text-[11px] sm:text-xs text-slate-500 dark:text-slate-400">Reuniões aos Sábados • Maanaim</p>
           </div>
         </div>
 
-        <div class="flex items-center space-x-2">
-          <select id="calMonthDropdown" class="text-sm font-semibold rounded-xl border border-slate-300 dark:border-slate-600 bg-white dark:bg-slate-700 px-3 py-2 text-slate-700 dark:text-slate-200">
+        <div class="flex items-center space-x-2 justify-between sm:justify-end">
+          <select id="calMonthDropdown" class="flex-1 sm:flex-initial text-xs sm:text-sm font-semibold rounded-xl border border-slate-300 dark:border-slate-600 bg-white dark:bg-slate-700 px-2.5 sm:px-3 py-2 text-slate-700 dark:text-slate-200">
             ${MONTH_NAMES.map((m, idx) => `<option value="${idx}" ${idx === this.currentMonth ? "selected" : ""}>${m}</option>`).join("")}
           </select>
-          <button id="calNextMonthBtn" class="p-2.5 rounded-xl bg-slate-100 hover:bg-slate-200 dark:bg-slate-700 dark:hover:bg-slate-600 transition font-bold text-slate-700 dark:text-slate-200 flex items-center justify-center">
-            <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"/></svg>
-          </button>
-          <button id="calAddEventTopBtn" class="ml-2 px-4 py-2 bg-blue-600 hover:bg-blue-700 text-white font-bold rounded-xl shadow-md transition flex items-center gap-2 text-sm">
-            <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 4v16m8-8H4"/></svg>
-            <span>Novo Evento</span>
+          <button id="calAddEventTopBtn" class="px-3 sm:px-4 py-2 bg-blue-600 hover:bg-blue-700 text-white font-bold rounded-xl shadow-md transition flex items-center gap-1.5 text-xs sm:text-sm shrink-0">
+            <svg class="w-4 h-4 shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 4v16m8-8H4"/></svg>
+            <span>+ Evento</span>
           </button>
         </div>
       </div>

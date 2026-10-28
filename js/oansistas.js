@@ -375,33 +375,33 @@ class OansistasManager {
       if (pageWatermark) pageWatermark.src = "assets/img/oanse-logo.png";
 
       container.innerHTML = `
-        <div class="relative overflow-hidden flex flex-col md:flex-row md:items-center justify-between gap-4 bg-gradient-to-r from-blue-900 to-indigo-900 text-white p-5 rounded-2xl shadow-md">
+        <div class="relative overflow-hidden flex flex-col md:flex-row md:items-center justify-between gap-4 bg-gradient-to-r from-blue-900 to-indigo-900 text-white p-4 sm:p-5 rounded-2xl shadow-md">
           <!-- Marca d'água com a logo geral no fundo -->
           <div class="absolute -right-6 -bottom-8 w-48 sm:w-56 h-48 sm:h-56 opacity-15 pointer-events-none select-none z-0">
             <img src="assets/img/oanse-logo.png" class="w-full h-full object-contain filter brightness-125" alt="">
           </div>
 
-          <div class="relative z-10 flex items-center space-x-3.5">
-            <div class="w-12 h-12 rounded-xl bg-white/10 flex items-center justify-center p-2 backdrop-blur-sm border border-white/20">
+          <div class="relative z-10 flex items-center space-x-3 min-w-0">
+            <div class="w-12 h-12 rounded-xl bg-white/10 flex items-center justify-center p-2 backdrop-blur-sm border border-white/20 shrink-0">
               <img src="assets/img/oanse-logo.png" class="w-full h-full object-contain" alt="OANSE">
             </div>
-            <div>
-              <div class="flex items-center gap-2">
-                <span class="text-xs bg-amber-400 text-amber-950 font-black px-2 py-0.5 rounded-full uppercase">Acesso Geral</span>
+            <div class="min-w-0 flex-1">
+              <div class="flex items-center gap-2 flex-wrap">
+                <span class="text-[10px] sm:text-xs bg-amber-400 text-amber-950 font-black px-2 py-0.5 rounded-full uppercase">Acesso Geral</span>
                 <span class="text-xs text-blue-200">Coordenação / Pastores</span>
               </div>
-              <h2 class="text-xl md:text-2xl font-black">Todos os Clubes OANSE Maanaim</h2>
+              <h2 class="text-lg md:text-2xl font-black truncate">Todos os Clubes OANSE Maanaim</h2>
             </div>
           </div>
 
-          <div class="relative z-10 flex items-center gap-2 flex-wrap sm:flex-nowrap">
-            <select id="leaderClubFilterSelect" class="bg-white/10 text-white border border-white/20 rounded-xl px-3 py-2 text-sm font-semibold focus:outline-none focus:ring-2 focus:ring-white">
+          <div class="relative z-10 flex items-center gap-2 w-full md:w-auto">
+            <select id="leaderClubFilterSelect" class="flex-1 md:flex-initial bg-white/10 text-white border border-white/20 rounded-xl px-3 py-2 text-xs sm:text-sm font-semibold focus:outline-none focus:ring-2 focus:ring-white">
               <option value="todos" class="text-slate-800">Filtrar: Todos os Clubes</option>
               ${Object.values(CLUBS_DATA).map(c => `
                 <option value="${c.id}" class="text-slate-800">${c.name} (${c.age})</option>
               `).join("")}
             </select>
-            <button onclick="oansistasManager.logout()" class="px-3.5 py-2 rounded-xl bg-white/10 hover:bg-white/20 text-white text-xs font-bold transition flex items-center gap-1.5 border border-white/20">
+            <button onclick="oansistasManager.logout()" class="px-3.5 py-2 rounded-xl bg-white/10 hover:bg-white/20 text-white text-xs font-bold transition flex items-center gap-1.5 border border-white/20 shrink-0">
               <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 16l4-4m0 0l-4-4m4 4H7m6 4v1a3 3 0 01-3 3H6a3 3 0 01-3-3V7a3 3 0 013-3h4a3 3 0 013 3v1"/></svg>
               <span>Sair</span>
             </button>
@@ -426,32 +426,32 @@ class OansistasManager {
       if (pageWatermark) pageWatermark.src = watermarkSrc;
 
       container.innerHTML = `
-        <div class="relative overflow-hidden flex flex-col md:flex-row md:items-center justify-between gap-4 p-5 rounded-2xl shadow-md border" style="background: linear-gradient(135deg, ${club.colorDark}, ${club.color}); color: white;">
+        <div class="relative overflow-hidden flex flex-col md:flex-row md:items-center justify-between gap-4 p-4 sm:p-5 rounded-2xl shadow-md border" style="background: linear-gradient(135deg, ${club.colorDark}, ${club.color}); color: white;">
           <!-- Marca d'água minimamente transparente com a logo do clube no fundo -->
           <div class="absolute -right-6 -bottom-8 w-48 sm:w-56 h-48 sm:h-56 opacity-15 pointer-events-none select-none z-0">
             <img src="${watermarkSrc}" class="w-full h-full object-contain filter brightness-125" alt="">
           </div>
 
-          <div class="relative z-10 flex items-center space-x-3.5">
-            <div class="w-14 h-14 rounded-2xl bg-white p-1.5 shadow-md shrink-0 flex items-center justify-center">
+          <div class="relative z-10 flex items-center space-x-3 min-w-0">
+            <div class="w-12 h-12 sm:w-14 sm:h-14 rounded-2xl bg-white p-1.5 shadow-md shrink-0 flex items-center justify-center">
               <img src="${club.badge}" class="w-full h-full object-contain" alt="${club.name}">
             </div>
-            <div>
-              <div class="flex items-center gap-2">
-                <span class="text-xs bg-white text-slate-900 font-black px-2 py-0.5 rounded-full uppercase tracking-wider">${club.fullName}</span>
+            <div class="min-w-0 flex-1">
+              <div class="flex items-center gap-1.5 flex-wrap">
+                <span class="text-[10px] sm:text-xs bg-white text-slate-900 font-black px-2 py-0.5 rounded-full uppercase tracking-wider">${club.fullName}</span>
                 <span class="text-xs text-white/80">${club.age}</span>
               </div>
-              <h2 class="text-xl md:text-2xl font-black mt-0.5">Painel de Liderança • ${club.name}</h2>
-              <p class="text-xs text-white/90 italic">Lema: "${club.motto.replace(/^"|"$/g, '')}"</p>
+              <h2 class="text-lg md:text-2xl font-black mt-0.5 truncate">Painel de Liderança • ${club.name}</h2>
+              <p class="text-[11px] sm:text-xs text-white/90 italic truncate">Lema: "${club.motto.replace(/^"|"$/g, '')}"</p>
             </div>
           </div>
 
-          <div class="relative z-10 flex items-center gap-2">
-            <button onclick="oansistasManager.openNewOansistaModal('${club.id}')" class="px-4 py-2.5 rounded-xl bg-white text-slate-900 hover:bg-slate-100 font-extrabold text-sm shadow transition flex items-center gap-2">
-              <svg class="w-4 h-4 text-emerald-600" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" d="M12 4v16m8-8H4"/></svg>
+          <div class="relative z-10 flex items-center gap-2 w-full md:w-auto justify-end">
+            <button onclick="oansistasManager.openNewOansistaModal('${club.id}')" class="flex-1 md:flex-initial px-3.5 sm:px-4 py-2 sm:py-2.5 rounded-xl bg-white text-slate-900 hover:bg-slate-100 font-extrabold text-xs sm:text-sm shadow transition flex items-center justify-center gap-1.5 sm:gap-2">
+              <svg class="w-4 h-4 text-emerald-600 shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" d="M12 4v16m8-8H4"/></svg>
               <span>Novo Oansista</span>
             </button>
-            <button onclick="oansistasManager.logout()" class="p-2.5 rounded-xl bg-white/10 hover:bg-white/20 text-white transition border border-white/20" title="Trocar de clube / Sair">
+            <button onclick="oansistasManager.logout()" class="p-2 sm:p-2.5 rounded-xl bg-white/10 hover:bg-white/20 text-white transition border border-white/20 shrink-0" title="Trocar de clube / Sair">
               <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 16l4-4m0 0l-4-4m4 4H7m6 4v1a3 3 0 01-3 3H6a3 3 0 01-3-3V7a3 3 0 013-3h4a3 3 0 013 3v1"/></svg>
             </button>
           </div>
@@ -765,31 +765,31 @@ class OansistasManager {
   renderOansistasTabs(list, selectedOan) {
     if (!selectedOan) {
       return `
-        <div class="bg-white dark:bg-slate-800 p-4 sm:p-5 rounded-2xl border border-slate-200 dark:border-slate-700 shadow-sm transition-all">
+        <div class="bg-white dark:bg-slate-800 p-3.5 sm:p-5 rounded-2xl border border-slate-200 dark:border-slate-700 shadow-sm transition-all">
           <div class="flex flex-col sm:flex-row sm:items-center justify-between gap-3">
-            <div class="flex items-center gap-3 min-w-0">
-              <div class="w-12 h-12 rounded-xl bg-blue-50 dark:bg-blue-950/40 border border-blue-200 dark:border-blue-800 p-1 shrink-0 flex items-center justify-center text-blue-600 dark:text-blue-400 shadow-2xs">
-                <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12h6m-6 4h6m2 5H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z"/></svg>
+            <div class="flex items-center gap-2.5 sm:gap-3 min-w-0 flex-1">
+              <div class="w-10 h-10 sm:w-12 sm:h-12 rounded-xl bg-blue-50 dark:bg-blue-950/40 border border-blue-200 dark:border-blue-800 p-1 shrink-0 flex items-center justify-center text-blue-600 dark:text-blue-400 shadow-2xs">
+                <svg class="w-5 h-5 sm:w-6 sm:h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12h6m-6 4h6m2 5H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z"/></svg>
               </div>
-              <div class="min-w-0">
-                <div class="flex items-center gap-2">
+              <div class="min-w-0 flex-1">
+                <div class="flex items-center gap-1.5 flex-wrap">
                   <span class="text-[10px] font-black uppercase tracking-wider bg-slate-100 dark:bg-slate-700 text-slate-600 dark:text-slate-300 px-2 py-0.5 rounded-full">
                     Aguardando Seleção
                   </span>
                   <span class="text-xs text-slate-500 font-semibold">${list.length} cadastrado(s)</span>
                 </div>
-                <h3 class="text-base sm:text-lg font-black text-slate-900 dark:text-white">
+                <h3 class="text-sm sm:text-lg font-black text-slate-900 dark:text-white truncate">
                   Selecione um nome para abrir a ficha
                 </h3>
               </div>
             </div>
 
             <!-- Botão Ver Cadastrados -->
-            <div class="shrink-0">
+            <div class="shrink-0 w-full sm:w-auto">
               <button type="button" 
                       onclick="oansistasManager.toggleOansistasDropdown()"
                       id="btnToggleOansistasList"
-                      class="w-full sm:w-auto px-4 py-2.5 rounded-xl bg-blue-600 hover:bg-blue-700 active:scale-98 text-white font-extrabold text-sm shadow-md transition flex items-center justify-center gap-2.5 border border-blue-500">
+                      class="w-full sm:w-auto px-4 py-2.5 rounded-xl bg-blue-600 hover:bg-blue-700 active:scale-98 text-white font-extrabold text-xs sm:text-sm shadow-md transition flex items-center justify-center gap-2 border border-blue-500">
                 <svg class="w-4 h-4 shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                   <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 20h5v-2a3 3 0 00-5.356-1.857M17 20H7m10 0v-2c0-.656-.126-1.283-.356-1.857M7 20H2v-2a3 3 0 015.356-1.857M7 20v-2c0-.656.126-1.283.356-1.857m0 0a5.002 5.002 0 019.288 0M15 7a3 3 0 11-6 0 3 3 0 016 0zm6 3a2 2 0 11-4 0 2 2 0 014 0zM7 10a2 2 0 11-4 0 2 2 0 014 0z"/>
                 </svg>
@@ -810,22 +810,22 @@ class OansistasManager {
     const selectedClub = CLUBS_DATA[selectedOan.club] || CLUBS_DATA.ursinho;
 
     return `
-      <div class="bg-white dark:bg-slate-800 p-4 sm:p-5 rounded-2xl border border-slate-200 dark:border-slate-700 shadow-sm transition-all">
+      <div class="bg-white dark:bg-slate-800 p-3.5 sm:p-5 rounded-2xl border border-slate-200 dark:border-slate-700 shadow-sm transition-all">
         <div class="flex flex-col sm:flex-row sm:items-center justify-between gap-3">
           <!-- Identificação do Oansista ou Líder Atualmente Aberto na Ficha -->
-          <div class="flex items-center gap-3 min-w-0">
-            <div class="w-12 h-12 rounded-xl ${isSelectedLider ? 'bg-slate-800 text-white border-2 border-slate-600' : 'bg-slate-100 dark:bg-slate-700 border border-slate-200 dark:border-slate-600'} p-1 shrink-0 flex items-center justify-center shadow-2xs">
+          <div class="flex items-center gap-2.5 sm:gap-3 min-w-0 flex-1">
+            <div class="w-10 h-10 sm:w-12 sm:h-12 rounded-xl ${isSelectedLider ? 'bg-slate-800 text-white border-2 border-slate-600' : 'bg-slate-100 dark:bg-slate-700 border border-slate-200 dark:border-slate-600'} p-1 shrink-0 flex items-center justify-center shadow-2xs">
               ${isSelectedLider 
-                ? '<span class="text-2xl">👔</span>' 
+                ? '<span class="text-xl sm:text-2xl">👔</span>' 
                 : `<img src="${selectedClub.badge}" class="w-full h-full object-contain" alt="${selectedClub.name}">`
               }
             </div>
-            <div class="min-w-0">
-              <div class="flex items-center gap-2">
+            <div class="min-w-0 flex-1">
+              <div class="flex items-center gap-1.5 flex-wrap">
                 <span class="text-[10px] font-black uppercase tracking-wider ${isSelectedLider ? 'bg-slate-700 text-amber-300' : 'bg-blue-100 dark:bg-blue-900/60 text-blue-700 dark:text-blue-300'} px-2 py-0.5 rounded-full flex items-center gap-1">
-                  ${isSelectedLider ? '👔 Ficha de Líder Aberta' : 'Ficha Aberta'}
+                  ${isSelectedLider ? '👔 Ficha Aberta' : 'Ficha Aberta'}
                 </span>
-                <span class="text-xs text-slate-500 dark:text-slate-400 font-semibold">
+                <span class="text-xs text-slate-500 dark:text-slate-400 font-semibold truncate">
                   ${selectedClub.name} • ${isSelectedLider ? (selectedOan.role || 'Líder') : (selectedOan.age + ' anos')}
                 </span>
               </div>
@@ -835,20 +835,20 @@ class OansistasManager {
             </div>
           </div>
 
-          <!-- Botões de Ação: Fechar Ficha e Trocar Cadastrado -->
-          <div class="shrink-0 flex items-center gap-2">
+          <!-- Botões de Ação: Fechar Ficha e Trocar Cadastrado em Grade de 2 colunas no celular -->
+          <div class="grid grid-cols-2 sm:flex sm:items-center gap-2 w-full sm:w-auto shrink-0">
             <button type="button" 
                     onclick="oansistasManager.closeFicha()"
                     title="Fechar visualização desta ficha"
-                    class="px-3.5 py-2.5 rounded-xl bg-slate-100 hover:bg-rose-50 hover:text-rose-700 dark:bg-slate-700 dark:hover:bg-rose-950/40 text-slate-700 dark:text-slate-200 font-bold text-xs border border-slate-300 dark:border-slate-600 transition flex items-center gap-1.5 shadow-2xs">
-              <svg class="w-4 h-4 text-rose-500" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" d="M6 18L18 6M6 6l12 12"/></svg>
-              <span>Fechar Ficha</span>
+                    class="w-full sm:w-auto px-3 sm:px-3.5 py-2 sm:py-2.5 rounded-xl bg-slate-100 hover:bg-rose-50 hover:text-rose-700 dark:bg-slate-700 dark:hover:bg-rose-950/40 text-slate-700 dark:text-slate-200 font-bold text-xs border border-slate-300 dark:border-slate-600 transition flex items-center justify-center gap-1.5 shadow-2xs">
+              <svg class="w-4 h-4 text-rose-500 shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" d="M6 18L18 6M6 6l12 12"/></svg>
+              <span>Fechar</span>
             </button>
 
             <button type="button" 
                     onclick="oansistasManager.toggleOansistasDropdown()"
                     id="btnToggleOansistasList"
-                    class="w-full sm:w-auto px-4 py-2.5 rounded-xl bg-blue-600 hover:bg-blue-700 active:scale-98 text-white font-extrabold text-sm shadow-md transition flex items-center justify-center gap-2.5 border border-blue-500">
+                    class="w-full sm:w-auto px-4 py-2 sm:py-2.5 rounded-xl bg-blue-600 hover:bg-blue-700 active:scale-98 text-white font-extrabold text-xs sm:text-sm shadow-md transition flex items-center justify-center gap-1.5 sm:gap-2 border border-blue-500">
               <svg class="w-4 h-4 shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                 <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 20h5v-2a3 3 0 00-5.356-1.857M17 20H7m10 0v-2c0-.656-.126-1.283-.356-1.857M7 20H2v-2a3 3 0 015.356-1.857M7 20v-2c0-.656.126-1.283.356-1.857m0 0a5.002 5.002 0 019.288 0M15 7a3 3 0 11-6 0 3 3 0 016 0zm6 3a2 2 0 11-4 0 2 2 0 014 0zM7 10a2 2 0 11-4 0 2 2 0 014 0z"/>
               </svg>
@@ -862,6 +862,7 @@ class OansistasManager {
 
         ${this.renderDropdownListHtml(list)}
       </div>
+    `;
     `;
   }
 
@@ -943,32 +944,32 @@ class OansistasManager {
       <div class="${cardBorderBg} rounded-3xl transition-all duration-200 flex flex-col overflow-hidden relative" id="card-${oan.id}">
         
         <!-- Header do Card com Talento em Destaque e Seletor de Ano -->
-        <div class="p-4 sm:p-5 ${headerBg}">
-          <div class="flex items-start justify-between gap-3">
-            <div class="flex items-center space-x-3.5 min-w-0">
-              <div class="w-14 h-14 rounded-2xl p-1.5 ${isLider ? 'bg-slate-900 text-white border border-slate-600' : 'bg-white shadow-xs border border-slate-100'} shrink-0 flex items-center justify-center">
+        <div class="p-3.5 sm:p-5 ${headerBg}">
+          <div class="flex items-start justify-between gap-2.5 sm:gap-3">
+            <div class="flex items-center space-x-2.5 sm:space-x-3.5 min-w-0 flex-1">
+              <div class="w-12 h-12 sm:w-14 sm:h-14 rounded-2xl p-1.5 ${isLider ? 'bg-slate-900 text-white border border-slate-600' : 'bg-white shadow-xs border border-slate-100'} shrink-0 flex items-center justify-center">
                 ${isLider 
-                  ? '<span class="text-3xl">👔</span>' 
+                  ? '<span class="text-2xl sm:text-3xl">👔</span>' 
                   : `<img src="${club.badge}" class="w-full h-full object-contain" alt="${club.name}">`
                 }
               </div>
-              <div class="min-w-0">
+              <div class="min-w-0 flex-1">
                 <div class="flex items-center gap-1.5 flex-wrap">
                   ${isLider 
-                    ? `<span class="text-[11px] font-black uppercase px-2.5 py-0.5 rounded-full bg-amber-400 text-slate-950 shadow-2xs">
-                         👔 Ficha Oficial de Líder
+                    ? `<span class="text-[10px] sm:text-[11px] font-black uppercase px-2 sm:px-2.5 py-0.5 rounded-full bg-amber-400 text-slate-950 shadow-2xs">
+                         👔 Líder
                        </span>
-                       <span class="text-xs font-bold text-slate-200 bg-white/15 px-2.5 py-0.5 rounded-full">
+                       <span class="text-[11px] sm:text-xs font-bold text-slate-200 bg-white/15 px-2 sm:px-2.5 py-0.5 rounded-full truncate">
                          ${club.fullName}
                        </span>`
-                    : `<span class="text-[11px] font-black uppercase px-2.5 py-0.5 rounded-full" style="background-color: ${club.colorLight}; color: ${club.colorDark};">
+                    : `<span class="text-[10px] sm:text-[11px] font-black uppercase px-2 sm:px-2.5 py-0.5 rounded-full" style="background-color: ${club.colorLight}; color: ${club.colorDark};">
                          ${club.name}
                        </span>
-                       <span class="text-xs font-semibold text-slate-500">${oan.age} anos</span>`
+                       <span class="text-[11px] sm:text-xs font-semibold text-slate-500">${oan.age} anos</span>`
                   }
                   
                   <!-- SELETOR DE ANO NO CARD -->
-                  <div class="inline-flex items-center gap-1 ${isLider ? 'bg-white/10 text-white border-white/20' : 'bg-blue-50 dark:bg-blue-900/40 text-blue-800 dark:text-blue-300 border-blue-200/80'} px-2.5 py-0.5 rounded-md border text-[11px] font-bold">
+                  <div class="inline-flex items-center gap-1 ${isLider ? 'bg-white/10 text-white border-white/20' : 'bg-blue-50 dark:bg-blue-900/40 text-blue-800 dark:text-blue-300 border-blue-200/80'} px-2 py-0.5 rounded-md border text-[10px] sm:text-[11px] font-bold">
                     <span>Ano:</span>
                     <select onchange="oansistasManager.updateOanYear('${oan.id}', this.value)" class="bg-transparent font-black cursor-pointer focus:outline-none ${isLider ? 'text-white' : ''}">
                       <option value="2027" ${oanYear === 2027 ? 'selected' : ''} class="text-slate-900">2027</option>
@@ -978,36 +979,36 @@ class OansistasManager {
                     </select>
                   </div>
                 </div>
-                <h3 class="text-xl sm:text-2xl font-black ${isLider ? 'text-white' : 'text-slate-800 dark:text-white'} truncate mt-1" title="${oan.name}">
+                <h3 class="text-lg sm:text-2xl font-black ${isLider ? 'text-white' : 'text-slate-800 dark:text-white'} truncate mt-0.5" title="${oan.name}">
                   ${oan.name}
                 </h3>
-                ${isLider ? `<p class="text-xs text-slate-300 font-medium">Função: <strong>${oan.role || 'Líder do Clube'}</strong> • ${oan.age} anos</p>` : ''}
+                ${isLider ? `<p class="text-[11px] sm:text-xs text-slate-300 font-medium truncate">Função: <strong>${oan.role || 'Líder do Clube'}</strong> • ${oan.age} anos</p>` : ''}
               </div>
             </div>
 
             <!-- Destaque de Talentos (Moeda Oanse) e Botão Fechar -->
-            <div class="flex flex-col items-end shrink-0 gap-1.5">
+            <div class="flex flex-col items-end shrink-0 gap-1 sm:gap-1.5">
               <button type="button" 
                       onclick="oansistasManager.closeFicha()" 
-                      class="px-2.5 py-1 rounded-xl ${isLider ? 'bg-slate-900/80 hover:bg-rose-600 text-slate-200 hover:text-white border border-slate-600' : 'bg-white/80 dark:bg-slate-700/80 hover:bg-rose-50 hover:text-rose-600 dark:hover:bg-rose-950/40 text-slate-600 dark:text-slate-300 border border-slate-200 dark:border-slate-600'} text-xs font-bold transition flex items-center gap-1 shadow-2xs" 
+                      class="px-2 sm:px-2.5 py-1 rounded-xl ${isLider ? 'bg-slate-900/80 hover:bg-rose-600 text-slate-200 hover:text-white border border-slate-600' : 'bg-white/80 dark:bg-slate-700/80 hover:bg-rose-50 hover:text-rose-600 dark:hover:bg-rose-950/40 text-slate-600 dark:text-slate-300 border border-slate-200 dark:border-slate-600'} text-[11px] sm:text-xs font-bold transition flex items-center gap-1 shadow-2xs" 
                       title="Fechar visualização desta ficha">
                 <svg class="w-3.5 h-3.5 text-rose-500" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" d="M6 18L18 6M6 6l12 12"/></svg>
                 <span>Fechar</span>
               </button>
-              <div class="flex items-center gap-1.5 ${isLider ? 'bg-slate-950 text-amber-400 border border-amber-400/40' : 'bg-amber-500/10 border border-amber-500/30 text-amber-900 dark:text-amber-300'} px-3.5 py-1.5 rounded-2xl shadow-xs">
+              <div class="flex items-center gap-1 sm:gap-1.5 ${isLider ? 'bg-slate-950 text-amber-400 border border-amber-400/40' : 'bg-amber-500/10 border border-amber-500/30 text-amber-900 dark:text-amber-300'} px-2.5 sm:px-3.5 py-1 sm:py-1.5 rounded-2xl shadow-xs">
                 <span class="text-xs font-extrabold text-amber-500">T$</span>
-                <span class="text-2xl sm:text-3xl font-black tracking-tight" id="talentos-val-${oan.id}">${totalTalentos}</span>
+                <span class="text-xl sm:text-3xl font-black tracking-tight" id="talentos-val-${oan.id}">${totalTalentos}</span>
               </div>
-              <span class="text-[10px] font-bold ${isLider ? 'text-slate-300' : 'text-slate-500'} uppercase tracking-wider">Saldo de Talentos</span>
-              ${isLider ? `<span class="text-[9px] text-emerald-400 font-bold block">1 presença = 1 talento</span>` : ''}
+              <span class="text-[9px] sm:text-[10px] font-bold ${isLider ? 'text-slate-300' : 'text-slate-500'} uppercase tracking-wider">Talentos</span>
+              ${isLider ? `<span class="text-[9px] text-emerald-400 font-bold block">1 pres. = 1 T$</span>` : ''}
             </div>
           </div>
 
-          <!-- Seleção do Manual em andamento -->
-          <div class="mt-3.5 flex items-center justify-between gap-2 pt-2 border-t ${isLider ? 'border-slate-600/70 text-slate-300' : 'border-slate-100 dark:border-slate-700/50 text-slate-600 dark:text-slate-300'} text-xs">
-            <div class="flex items-center space-x-2">
-              <span class="font-bold">${isLider ? 'Manual do Líder:' : 'Manual:'}</span>
-              <select onchange="oansistasManager.updateManual('${oan.id}', this.value)" class="text-xs font-semibold ${isLider ? 'bg-slate-950 text-white border-slate-600' : 'bg-white dark:bg-slate-700 text-slate-800 dark:text-slate-200 border-slate-200 dark:border-slate-600'} border rounded-lg px-2.5 py-1 focus:outline-none">
+          <!-- Seleção do Manual em andamento e Frequência -->
+          <div class="mt-3 flex flex-col sm:flex-row sm:items-center justify-between gap-2 pt-2 border-t ${isLider ? 'border-slate-600/70 text-slate-300' : 'border-slate-100 dark:border-slate-700/50 text-slate-600 dark:text-slate-300'} text-xs">
+            <div class="flex items-center space-x-2 w-full sm:w-auto">
+              <span class="font-bold shrink-0">${isLider ? 'Manual:' : 'Manual:'}</span>
+              <select onchange="oansistasManager.updateManual('${oan.id}', this.value)" class="flex-1 sm:flex-initial text-xs font-semibold ${isLider ? 'bg-slate-950 text-white border-slate-600' : 'bg-white dark:bg-slate-700 text-slate-800 dark:text-slate-200 border-slate-200 dark:border-slate-600'} border rounded-lg px-2.5 py-1 focus:outline-none">
                 ${manualOptions.map(m => {
                   const mKey = `${oan.club}_${m.id}`;
                   return `<option value="${mKey}" ${oan.manual === mKey ? 'selected' : ''}>${m.name}</option>`;
@@ -1016,7 +1017,7 @@ class OansistasManager {
             </div>
 
             <!-- Frequência / Presença resumida -->
-            <div class="text-[11px] font-bold flex items-center gap-2">
+            <div class="text-[11px] font-bold flex items-center justify-between sm:justify-end gap-2 w-full sm:w-auto">
               <span class="${isLider ? 'text-emerald-400 bg-emerald-950/60 border border-emerald-500/40' : 'text-emerald-600 dark:text-emerald-400'} px-2 py-0.5 rounded font-black">
                 P: ${totalPresencas} ${isLider ? `(+${totalPresencas} T$)` : ''}
               </span>
@@ -1192,8 +1193,8 @@ class OansistasManager {
         </div>
 
         <!-- Rodapé do Card: Ações (Editar, Imprimir Ficha, Excluir) -->
-        <div class="p-3 bg-slate-50 dark:bg-slate-900/60 border-t border-slate-100 dark:border-slate-700/60 flex items-center justify-between text-xs">
-          <div class="flex items-center space-x-1">
+        <div class="p-3 bg-slate-50 dark:bg-slate-900/60 border-t border-slate-100 dark:border-slate-700/60 flex flex-wrap items-center justify-between gap-2 text-xs">
+          <div class="flex items-center space-x-1 flex-wrap gap-1">
             <button onclick="oansistasManager.printFicha('${oan.id}')" class="px-2.5 py-1.5 rounded-xl hover:bg-slate-200 dark:hover:bg-slate-700 text-slate-700 dark:text-slate-300 font-bold transition flex items-center gap-1">
               <svg class="w-3.5 h-3.5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 17h2a2 2 0 002-2v-4a2 2 0 00-2-2H5a2 2 0 00-2 2v4a2 2 0 002 2h2m2 4h6a2 2 0 002-2v-4a2 2 0 00-2-2H9a2 2 0 00-2 2v4a2 2 0 002 2zm8-12V5a2 2 0 00-2-2H9a2 2 0 00-2 2v4h10z"/></svg>
               <span>Imprimir</span>
@@ -1202,7 +1203,7 @@ class OansistasManager {
               <svg class="w-3.5 h-3.5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M11 5H6a2 2 0 00-2 2v11a2 2 0 002 2h11a2 2 0 002-2v-5m-1.414-9.414a2 2 0 112.828 2.828L11.828 15H9v-2.828l8.586-8.586z"/></svg>
               <span>Editar</span>
             </button>
-            <button onclick="oansistasManager.closeFicha()" class="px-3 py-1.5 rounded-xl bg-rose-50 hover:bg-rose-100 dark:bg-rose-950/40 dark:hover:bg-rose-900/60 text-rose-700 dark:text-rose-300 font-black transition flex items-center gap-1 border border-rose-200 dark:border-rose-800/60 ml-1" title="Fechar visualização desta ficha">
+            <button onclick="oansistasManager.closeFicha()" class="px-3 py-1.5 rounded-xl bg-rose-50 hover:bg-rose-100 dark:bg-rose-950/40 dark:hover:bg-rose-900/60 text-rose-700 dark:text-rose-300 font-black transition flex items-center gap-1 border border-rose-200 dark:border-rose-800/60 ml-0.5" title="Fechar visualização desta ficha">
               <svg class="w-3.5 h-3.5 text-rose-600" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" d="M6 18L18 6M6 6l12 12"/></svg>
               <span>Fechar Ficha</span>
             </button>
