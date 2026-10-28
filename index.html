@@ -1,0 +1,927 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+  <title>Portal OANSE • Igreja Batista Regular Maanaim</title>
+  
+  <!-- Tailwind CSS CDN -->
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script>
+    tailwind.config = {
+      darkMode: 'class',
+      theme: {
+        extend: {
+          colors: {
+            oanse: {
+              blue: '#1E3A8A',
+              lightBlue: '#0284C7',
+              red: '#DC2626',
+              gold: '#F59E0B',
+              green: '#16A34A',
+              navy: '#0A1931'
+            }
+          }
+        }
+      }
+    }
+  </script>
+
+  <!-- Google Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@400;600;700;800;900&family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+
+  <link rel="stylesheet" href="css/styles.css">
+</head>
+<body class="bg-slate-50 text-slate-800 antialiased min-h-screen">
+
+  <!-- ================= TOP HEADER ================= -->
+  <header class="sticky top-0 z-40 bg-white/95 backdrop-blur-md border-b border-slate-200 shadow-2xs">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 h-16 flex items-center justify-between">
+      
+      <!-- Brand & Official OANSE Logo -->
+      <div class="flex items-center space-x-3 cursor-pointer" onclick="oanseApp.switchTab('tab-inicio')">
+        <div class="h-11 px-2.5 rounded-xl overflow-hidden shadow-xs border border-amber-200/80 flex items-center justify-center bg-white">
+          <img src="assets/img/oanse-logo.png" alt="OANSE Oficial" class="h-8 w-auto object-contain">
+        </div>
+        <div>
+          <div class="flex items-center gap-2">
+            <span class="text-[10px] font-black uppercase tracking-wider text-blue-700 bg-blue-50 px-2 py-0.5 rounded-full">PORTAL OANSE</span>
+            <span class="text-xs font-semibold text-slate-500">IBR MAANAIM</span>
+          </div>
+          <h1 class="text-sm sm:text-base font-black text-slate-900 leading-tight">Igreja Batista Regular Maanaim</h1>
+        </div>
+      </div>
+
+      <!-- Área de Acesso Rápido -->
+      <div class="flex items-center space-x-2">
+        <div id="cloudSyncStatusBadge" class="hidden sm:inline-flex items-center gap-1.5 px-2.5 py-1 rounded-full text-[11px] border border-slate-200 bg-slate-100 text-slate-600 shadow-2xs" title="Status da sincronização em nuvem">
+          <span class="w-2 h-2 rounded-full bg-slate-400"></span>
+          <span>Modo Local</span>
+        </div>
+        <button onclick="oanseApp.switchTab('tab-lideres')" class="text-xs font-extrabold text-blue-700 bg-blue-50 hover:bg-blue-100 px-3.5 py-2 rounded-xl transition border border-blue-200 flex items-center gap-1.5">
+          <svg class="w-3.5 h-3.5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 15v2m-6 4h12a2 2 0 002-2v-6a2 2 0 00-2-2H6a2 2 0 00-2 2v6a2 2 0 002 2zm10-10V7a4 4 0 00-8 0v4h8z"/></svg>
+          <span>Área do Líder</span>
+        </button>
+      </div>
+
+    </div>
+  </header>
+
+
+  <!-- ================= MAIN CONTENT WRAPPER ================= -->
+  <main class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 pt-6 pb-20">
+
+
+    <!-- ======================================================== -->
+    <!-- 1ª ABA: INÍCIO & CLUBES                                   -->
+    <!-- ======================================================== -->
+    <section id="tab-inicio" class="tab-content">
+      
+      <!-- Visão Principal da Aba Inicial -->
+      <div id="inicioMainView">
+
+        <!-- Hero Banner com Definição do OANSE (VERMELHO DEGRADÊ COM LETRAS BRANCAS E AMARELAS) -->
+        <div class="relative overflow-hidden rounded-3xl bg-gradient-to-br from-red-600 via-red-800 to-rose-950 text-white p-6 sm:p-10 shadow-xl mb-8 border border-red-500/30">
+          
+          <!-- Background glow decoration -->
+          <div class="absolute -right-16 -top-16 w-80 h-80 rounded-full bg-yellow-400/15 blur-3xl pointer-events-none"></div>
+          <div class="absolute -left-16 -bottom-16 w-80 h-80 rounded-full bg-rose-500/20 blur-3xl pointer-events-none"></div>
+
+          <!-- Logo do OANSE transparente no lado direito do banner conforme solicitado -->
+          <div class="absolute right-2 sm:right-6 md:right-10 lg:right-14 top-1/2 -translate-y-1/2 w-48 sm:w-64 md:w-80 lg:w-96 pointer-events-none select-none opacity-20 sm:opacity-40 md:opacity-55 lg:opacity-65 flex items-center justify-center z-0 transition-opacity">
+            <img src="assets/img/oanse-logo.png" alt="OANSE" class="w-full h-full object-contain filter drop-shadow-lg">
+          </div>
+
+          <div class="relative z-10 max-w-2xl lg:max-w-3xl">
+            <div class="inline-flex items-center gap-2 bg-black/25 backdrop-blur-md px-3.5 py-1.5 rounded-full border border-yellow-400/40 text-xs font-black uppercase tracking-wider text-yellow-300 mb-4 shadow-sm">
+              <span>📖 2 Timóteo 2:15</span>
+              <span class="w-1.5 h-1.5 rounded-full bg-yellow-400"></span>
+              <span>Ministério Cristão</span>
+            </div>
+
+            <h2 class="text-3xl sm:text-4xl md:text-5xl font-black tracking-tight text-white leading-tight mb-4 drop-shadow-sm">
+              OANSE Maanaim
+            </h2>
+
+            <div class="bg-black/25 backdrop-blur-sm rounded-2xl p-4 sm:p-5 border border-white/20 text-sm sm:text-base text-white leading-relaxed mb-6 space-y-3 shadow-inner">
+              <p>
+                <strong class="text-white font-extrabold">OANSE</strong> significa: 
+                <span class="text-yellow-300 font-black">"Obreiro Aprovado Não Se Envergonha"</span>, baseado no texto bíblico de 
+                <em class="underline decoration-yellow-400 text-yellow-200">2 Timóteo 2:15</em>:
+              </p>
+              <blockquote class="italic border-l-2 border-yellow-400 pl-3.5 text-yellow-100/90 text-xs sm:text-sm">
+                "Procura apresentar-te a Deus aprovado, como obreiro que não tem de que se envergonhar, que maneja bem a palavra da verdade."
+              </blockquote>
+            </div>
+
+            <!-- Botões de Ação Rápida -->
+            <div class="flex flex-wrap items-center gap-3">
+              <a href="#clubesSection" class="px-5 py-3 rounded-2xl bg-yellow-400 hover:bg-yellow-300 text-slate-950 font-black text-sm shadow-lg transition flex items-center gap-2">
+                <span>Conhecer os Clubes</span>
+                <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" d="M19 9l-7 7-7-7"/></svg>
+              </a>
+              <button onclick="oanseApp.switchTab('tab-lideres')" class="px-5 py-3 rounded-2xl bg-white/15 hover:bg-white/25 text-white font-bold text-sm backdrop-blur-sm border border-white/25 transition flex items-center gap-2 shadow-sm">
+                <svg class="w-4 h-4 text-yellow-300" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 15v2m-6 4h12a2 2 0 002-2v-6a2 2 0 00-2-2H6a2 2 0 00-2 2v6a2 2 0 002 2zm10-10V7a4 4 0 00-8 0v4h8z"/></svg>
+                <span>Acesso dos Líderes</span>
+              </button>
+            </div>
+
+          </div>
+        </div>
+
+        <!-- ================= BARRA DE CLUBES (BARRA INTERATIVA COM BORDAS COLORIDAS NO HOVER) ================= -->
+        <div id="clubesSection" class="mb-10">
+          <div class="mb-5">
+            <h3 class="text-2xl sm:text-3xl font-black text-slate-900">Clubes do OANSE Maanaim</h3>
+          </div>
+
+          <!-- Grade da Barra de Clubes (6 Clubes com fotos) -->
+          <div id="clubsNavBarList" class="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-6 gap-3 sm:gap-4">
+            <!-- Gerado dinamicamente via app.js com cores no hover:
+                 Ursinhos: Vermelho | Faísca: Amarelo | Flama: Verde | Tocha: Azul | JV: Preto | VQ7: Azul marinho -->
+          </div>
+        </div>
+
+        <!-- ================= PROGRAMAÇÃO SEMANAL (5 MOMENTOS OFICIAIS) ================= -->
+        <div class="bg-white rounded-3xl p-6 sm:p-8 border border-slate-200 shadow-sm mb-10">
+          <div class="text-center max-w-2xl mx-auto mb-8">
+            <span class="text-xs font-black uppercase tracking-wider text-blue-600 bg-blue-50 px-3 py-1 rounded-full">Encontro aos Sábados</span>
+            <h3 class="text-2xl sm:text-3xl font-black text-slate-900 mt-2">Programação Semanal</h3>
+            <p class="text-xs sm:text-sm text-slate-500 mt-1">A rotina dos nossos sábados na Igreja Batista Regular Maanaim é estruturada em 5 momentos especiais:</p>
+          </div>
+
+          <div class="grid grid-cols-1 md:grid-cols-3 lg:grid-cols-5 gap-3.5">
+            
+            <!-- 1 - Abertura e Louvores -->
+            <div class="p-4 rounded-2xl bg-blue-50/60 border border-blue-100 flex flex-col justify-between hover:border-blue-300 transition">
+              <div>
+                <div class="w-9 h-9 rounded-xl bg-blue-600 text-white flex items-center justify-center font-black text-sm mb-2.5 shadow-xs">
+                  1
+                </div>
+                <h4 class="text-sm font-black text-slate-800">Abertura e Louvores</h4>
+                <p class="text-xs text-slate-600 mt-1 leading-relaxed">
+                  Abertura com Hino a Bandeira, Hino Oanse e Compromisso a Bíblia, seguida de louvores vibrantes.
+                </p>
+              </div>
+              <div class="mt-3 pt-2 border-t border-blue-100 text-[10px] font-bold text-blue-700">
+                Louvor & Oração
+              </div>
+            </div>
+
+            <!-- 2 - Estudo Devocional -->
+            <div class="p-4 rounded-2xl bg-indigo-50/60 border border-indigo-100 flex flex-col justify-between hover:border-indigo-300 transition">
+              <div>
+                <div class="w-9 h-9 rounded-xl bg-indigo-600 text-white flex items-center justify-center font-black text-sm mb-2.5 shadow-xs">
+                  2
+                </div>
+                <h4 class="text-sm font-black text-slate-800">Estudo Devocional</h4>
+                <p class="text-xs text-slate-600 mt-1 leading-relaxed">
+                  História biblica edificante e aplicação prática para a vida diária.
+                </p>
+              </div>
+              <div class="mt-3 pt-2 border-t border-indigo-100 text-[10px] font-bold text-indigo-700">
+                Edificação Bíblica
+              </div>
+            </div>
+
+            <!-- 3 - Momento do manual -->
+            <div class="p-4 rounded-2xl bg-amber-50/60 border border-amber-100 flex flex-col justify-between hover:border-amber-300 transition">
+              <div>
+                <div class="w-9 h-9 rounded-xl bg-amber-500 text-white flex items-center justify-center font-black text-sm mb-2.5 shadow-xs">
+                  3
+                </div>
+                <h4 class="text-sm font-black text-slate-800">Momento do Manual</h4>
+                <p class="text-xs text-slate-600 mt-1 leading-relaxed">
+                  Memorização das seções presentes no manual do clube
+                </p>
+              </div>
+              <div class="mt-3 pt-2 border-t border-amber-100 text-[10px] font-bold text-amber-700">
+                Memorização das Escrituras
+              </div>
+            </div>
+
+            <!-- 4 - Jogos Oanse -->
+            <div class="p-4 rounded-2xl bg-emerald-50/60 border border-emerald-100 flex flex-col justify-between hover:border-emerald-300 transition">
+              <div>
+                <div class="w-9 h-9 rounded-xl bg-emerald-600 text-white flex items-center justify-center font-black text-sm mb-2.5 shadow-xs">
+                  4
+                </div>
+                <h4 class="text-sm font-black text-slate-800">Jogos Oanse</h4>
+                <p class="text-xs text-slate-600 mt-1 leading-relaxed">
+                  Gincanas esportivas e brincadeiras dinâmicas padrão Oanse
+                </p>
+              </div>
+              <div class="mt-3 pt-2 border-t border-emerald-100 text-[10px] font-bold text-emerald-700">
+                Círculo de Jogos
+              </div>
+            </div>
+
+            <!-- 5 - Lanche e Despedida -->
+            <div class="p-4 rounded-2xl bg-rose-50/60 border border-rose-100 flex flex-col justify-between hover:border-rose-300 transition">
+              <div>
+                <div class="w-9 h-9 rounded-xl bg-rose-600 text-white flex items-center justify-center font-black text-sm mb-2.5 shadow-xs">
+                  5
+                </div>
+                <h4 class="text-sm font-black text-slate-800">Lanche e Despedida</h4>
+                <p class="text-xs text-slate-600 mt-1 leading-relaxed">
+                  Momento de lanche e despedida entre oansistas e seus líderes
+                </p>
+              </div>
+              <div class="mt-3 pt-2 border-t border-rose-100 text-[10px] font-bold text-rose-700">
+                Comunhão
+              </div>
+            </div>
+
+          </div>
+        </div>
+
+      </div>
+
+      <!-- ================= PÁGINA DETALHADA DO CLUBE (QUANDO CLICADO) ================= -->
+      <div id="clubDetailView" class="hidden relative">
+        
+        <!-- Logo do clube de fundo na página minimamente transparente -->
+        <div class="fixed right-6 bottom-16 w-80 h-80 sm:w-[480px] sm:h-[480px] opacity-[0.07] pointer-events-none select-none z-0">
+          <img id="detailClubPageBgWatermark" src="" alt="" class="w-full h-full object-contain">
+        </div>
+
+        <div class="relative z-10">
+          <!-- Botão Voltar -->
+          <button id="btnBackFromClubDetail" class="mb-5 inline-flex items-center gap-2 px-4 py-2 rounded-xl bg-white border border-slate-200 text-slate-700 hover:text-blue-600 hover:border-blue-400 font-bold text-xs transition shadow-2xs">
+            <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" d="M10 19l-7-7m0 0l7-7m-7 7h18"/></svg>
+            <span>Voltar para Todos os Clubes</span>
+          </button>
+
+          <!-- Banner do Clube -->
+          <div id="detailClubBanner" class="rounded-3xl p-6 sm:p-10 text-white shadow-xl mb-6 relative overflow-hidden">
+            <!-- Logo do clube no fundo do banner minimamente transparente -->
+            <div class="absolute -right-8 -bottom-10 sm:-bottom-12 w-64 sm:w-80 h-64 sm:h-80 opacity-15 pointer-events-none select-none z-0">
+              <img id="detailClubBannerBgLogo" src="" alt="" class="w-full h-full object-contain filter brightness-125">
+            </div>
+
+            <div class="relative z-10 flex flex-col md:flex-row items-center gap-6">
+              <div class="w-28 h-28 sm:w-36 sm:h-36 rounded-3xl bg-white p-2.5 shadow-lg shrink-0 flex items-center justify-center">
+                <img id="detailClubBadge" src="" alt="Clube" class="w-full h-full object-contain">
+              </div>
+              <div class="text-center md:text-left flex-1">
+                <div class="inline-block px-3 py-1 bg-white/20 backdrop-blur-md rounded-full text-xs font-black uppercase tracking-wider mb-2">
+                  <span id="detailClubAge"></span>
+                </div>
+                <h2 id="detailClubName" class="text-3xl sm:text-4xl font-black"></h2>
+                <p id="detailClubMotto" class="text-base sm:text-lg text-white/90 font-medium italic mt-1"></p>
+                <div class="mt-3 text-xs sm:text-sm bg-black/20 backdrop-blur-sm p-3 rounded-xl border border-white/10 max-w-2xl">
+                  <span class="font-bold text-amber-300">Versículo Chave:</span>
+                  <span id="detailClubVerse" class="italic ml-1"></span>
+                </div>
+              </div>
+            </div>
+          </div>
+
+        <!-- Seções de Informações: Manuais, Farda, Faixa -->
+        <div class="grid grid-cols-1 md:grid-cols-3 gap-6 mb-8">
+          
+          <!-- Manuais Utilizados (COM OPÇÃO DE VISUALIZAR EM MODAL CONFORME SOLICITADO) -->
+          <div class="bg-white rounded-3xl p-6 border border-slate-200 shadow-xs flex flex-col justify-between">
+            <div>
+              <div class="flex items-center space-x-2.5 text-blue-600 mb-3">
+                <div class="w-9 h-9 rounded-xl bg-blue-50 flex items-center justify-center">
+                  <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 6.253v13m0-13C10.832 5.477 9.246 5 7.5 5S4.168 5.477 3 6.253v13C4.168 18.477 5.754 18 7.5 18s3.332.477 4.5 1.253m0-13C13.168 5.477 14.754 5 16.5 5c1.747 0 3.332.477 4.5 1.253v13C19.832 18.477 18.247 18 16.5 18c-1.746 0-3.332.477-4.5 1.253"/></svg>
+                </div>
+                <h4 class="text-lg font-black text-slate-800">Manuais do Clube</h4>
+              </div>
+              <h5 id="detailClubManualsTitle" class="text-sm font-bold text-slate-800 mb-1">Manuais de Estudo Bíblico</h5>
+              <p id="detailClubManualsDetails" class="text-xs text-slate-600 leading-relaxed mb-3">Livros de estudo bíblico, versículos para memorizar e seções faladas pelos oansistas.</p>
+              
+              <!-- Botão Visualizar Manuais do Clube -->
+              <button id="btnOpenManualsModal" class="w-full py-2.5 px-4 rounded-xl bg-blue-600 hover:bg-blue-700 text-white font-extrabold text-xs shadow-xs transition flex items-center justify-center gap-2 mb-3">
+                <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 6.253v13m0-13C10.832 5.477 9.246 5 7.5 5S4.168 5.477 3 6.253v13C4.168 18.477 5.754 18 7.5 18s3.332.477 4.5 1.253m0-13C13.168 5.477 14.754 5 16.5 5c1.747 0 3.332.477 4.5 1.253v13C19.832 18.477 18.247 18 16.5 18c-1.746 0-3.332.477-4.5 1.253"/></svg>
+                <span>Visualizar Manuais do Clube</span>
+              </button>
+
+              <div class="p-3 rounded-2xl bg-slate-50 border border-slate-100 text-xs text-slate-500">
+                <strong class="text-slate-700 block mb-0.5">Manuais Utilizados:</strong>
+                <span id="detailClubManualsSummary"></span>
+              </div>
+            </div>
+          </div>
+
+          <!-- Farda / Uniforme Oficial (COM OPÇÃO DE VISUALIZAR FRENTE E VERSO) -->
+          <div class="bg-white rounded-3xl p-6 border border-slate-200 shadow-xs flex flex-col justify-between">
+            <div>
+              <div class="flex items-center space-x-2.5 text-rose-600 mb-3">
+                <div class="w-9 h-9 rounded-xl bg-rose-50 flex items-center justify-center">
+                  <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M7 21a4 4 0 01-4-4V5a2 2 0 012-2h4a2 2 0 012 2v12a4 4 0 01-4 4zm0 0h12a2 2 0 002-2v-4a2 2 0 00-2-2h-2.343M11 7.343l1.657-1.657a2 2 0 012.828 0l2.829 2.829a2 2 0 010 2.828l-8.486 8.485M7 17h.01"/></svg>
+                </div>
+                <h4 class="text-lg font-black text-slate-800">Farda & Uniforme</h4>
+              </div>
+              <h5 id="detailClubUniformTitle" class="text-sm font-bold text-slate-800 mb-1"></h5>
+              <p id="detailClubUniformDetails" class="text-xs text-slate-600 leading-relaxed mb-3"></p>
+              
+              <!-- Botão Visualizar Farda Frente e Verso -->
+              <button id="btnOpenUniformModal" class="w-full py-2.5 px-4 rounded-xl bg-blue-600 hover:bg-blue-700 text-white font-extrabold text-xs shadow-xs transition flex items-center justify-center gap-2 mb-3">
+                <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 12a3 3 0 11-6 0 3 3 0 016 0z"/><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M2.458 12C3.732 7.943 7.523 5 12 5c4.478 0 8.268 2.943 9.542 7-1.274 4.057-5.064 7-9.542 7-4.477 0-8.268-2.943-9.542-7z"/></svg>
+                <span>Visualizar Farda (Frente e Verso)</span>
+              </button>
+
+              <div class="p-3 rounded-2xl bg-slate-50 border border-slate-100 text-xs text-slate-500">
+                <strong class="text-slate-700 block mb-0.5">Instruções de Uso:</strong>
+                <span id="detailClubUniformInstructions"></span>
+              </div>
+            </div>
+          </div>
+
+          <!-- Faixa do Clube (COM OPÇÃO DE VISUALIZAR FAIXA) -->
+          <div class="bg-white rounded-3xl p-6 border border-slate-200 shadow-xs flex flex-col justify-between">
+            <div>
+              <div class="flex items-center space-x-2.5 text-amber-600 mb-3">
+                <div class="w-9 h-9 rounded-xl bg-amber-50 flex items-center justify-center">
+                  <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 3v4M3 5h4M6 17v4m-2-2h4m5-16l2.286 6.857L21 12l-5.714 2.143L13 21l-2.286-6.857L5 12l5.714-2.143L13 3z"/></svg>
+                </div>
+                <h4 class="text-lg font-black text-slate-800">Faixa do Clube</h4>
+              </div>
+              <h5 id="detailClubSashTitle" class="text-sm font-bold text-slate-800 mb-1"></h5>
+              <p id="detailClubSashDetails" class="text-xs text-slate-600 leading-relaxed mb-3"></p>
+              
+              <!-- Botão Visualizar Faixa do Clube -->
+              <button id="btnOpenSashModal" class="w-full py-2.5 px-4 rounded-xl bg-blue-600 hover:bg-blue-700 text-white font-extrabold text-xs shadow-xs transition flex items-center justify-center gap-2 mb-3">
+                <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 12a3 3 0 11-6 0 3 3 0 016 0z"/><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M2.458 12C3.732 7.943 7.523 5 12 5c4.478 0 8.268 2.943 9.542 7-1.274 4.057-5.064 7-9.542 7-4.477 0-8.268-2.943-9.542-7z"/></svg>
+                <span>Visualizar Faixa</span>
+              </button>
+
+              <div class="p-3 rounded-2xl bg-amber-50/70 border border-amber-200 text-xs text-amber-900">
+                <strong class="block mb-0.5">Talentos & Moedas:</strong>
+                Cada seção falada gera pontos de talentos que podem ser trocados na feira do clube!
+              </div>
+            </div>
+          </div>
+
+        </div>
+
+        <!-- Descrição Completa -->
+        <div class="bg-white rounded-3xl p-6 sm:p-8 border border-slate-200 shadow-xs mb-8">
+          <h4 class="text-xl font-black text-slate-900 mb-3">Sobre este Clube</h4>
+          <div id="detailClubDesc" class="text-sm sm:text-base text-slate-600 leading-relaxed whitespace-pre-line"></div>
+        </div>
+
+        <!-- Call to action para o Líder do Clube -->
+        <div class="p-6 rounded-3xl bg-slate-900 text-white flex flex-col sm:flex-row items-center justify-between gap-4">
+          <div>
+            <span class="text-xs font-bold text-amber-400 uppercase tracking-wider">Acesso da Liderança</span>
+            <h4 class="text-lg font-black mt-0.5">Você é líder deste clube?</h4>
+            <p class="text-xs text-slate-400 mt-1">Acesse a ficha de cadastro, presença de sábados e marcação de seções e talentos.</p>
+          </div>
+          <div>
+            <button id="btnGoToLeaderFromDetail" class="px-5 py-2.5 rounded-xl bg-blue-600 hover:bg-blue-500 text-white font-bold text-xs shadow transition">
+              Acessar Fichas →
+            </button>
+          </div>
+        </div>
+
+        </div> <!-- fecha relative z-10 de clubDetailView -->
+      </div>
+
+    </section>
+
+
+
+    <!-- ======================================================== -->
+    <!-- 2ª ABA: ÁREA DE MEMBROS AUTORIZADOS / FICHAS DOS OANSISTAS -->
+    <!-- ======================================================== -->
+    <section id="tab-lideres" class="tab-content hidden">
+
+      <!-- ================= LOGIN SCREEN (CASO NÃO AUTENTICADO) ================= -->
+      <div id="leaderLoginSection" class="max-w-md mx-auto my-10">
+        <div class="bg-white rounded-3xl p-6 sm:p-8 border border-slate-200 shadow-xl text-center">
+          
+          <div class="w-16 h-16 rounded-2xl bg-blue-50 text-blue-600 flex items-center justify-center mx-auto mb-4 border border-blue-100">
+            <svg class="w-8 h-8" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 15v2m-6 4h12a2 2 0 002-2v-6a2 2 0 00-2-2H6a2 2 0 00-2 2v6a2 2 0 002 2zm10-10V7a4 4 0 00-8 0v4h8z"/></svg>
+          </div>
+
+          <span class="text-xs font-black uppercase tracking-wider text-blue-600 bg-blue-50 px-3 py-1 rounded-full">Área Reservada</span>
+          <h3 class="text-2xl font-black text-slate-900 mt-2 mb-1">Acesso dos Líderes</h3>
+          <p class="text-xs text-slate-500 mb-6">
+            Área restrita aos membros autorizados. Digite a senha do seu clube para acessar as fichas de cadastro.
+          </p>
+
+          <div class="space-y-4 text-left">
+            <div>
+              <label class="block text-xs font-bold text-slate-700 uppercase tracking-wider mb-1.5">Senha de Acesso do Clube</label>
+              <div class="relative">
+                <input type="password" id="leaderPasswordInput" placeholder="Digite a senha..." 
+                       class="w-full px-4 py-3 rounded-xl border border-slate-300 focus:outline-none focus:ring-2 focus:ring-blue-600 text-sm font-semibold tracking-wider">
+              </div>
+              <p id="leaderLoginError" class="text-xs text-rose-600 font-bold mt-1.5 hidden"></p>
+            </div>
+
+            <button id="btnLeaderLogin" class="w-full py-3.5 bg-blue-600 hover:bg-blue-700 text-white font-extrabold rounded-xl shadow-md transition flex items-center justify-center gap-2 text-sm">
+              <span>Entrar no Painel</span>
+              <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M14 5l7 7m0 0l-7 7m7-7H3"/></svg>
+            </button>
+          </div>
+
+        </div>
+      </div>
+
+      <!-- ================= DASHBOARD DE LIDERANÇA (AUTENTICADO) ================= -->
+      <div id="leaderDashboardSection" class="hidden relative">
+        
+        <!-- Logo do clube de fundo na área do líder minimamente transparente -->
+        <div class="fixed right-6 bottom-16 w-80 h-80 sm:w-[480px] sm:h-[480px] opacity-[0.07] pointer-events-none select-none z-0">
+          <img id="leaderClubPageBgWatermark" src="" alt="" class="w-full h-full object-contain">
+        </div>
+
+        <div class="relative z-10">
+          <!-- Header do Clube Ativo -->
+          <div id="leaderClubHeaderInfo" class="mb-6">
+            <!-- Renderizado via oansistas.js -->
+          </div>
+
+          <!-- Barra de Ações: Busca, Filtro de Ano, Filtro de Tipo (Oansistas / Líderes), Novo Cadastro, Contador -->
+          <div class="bg-white rounded-2xl p-4 border border-slate-200 shadow-2xs mb-6 flex flex-col md:flex-row items-center justify-between gap-3">
+            
+            <div class="flex items-center gap-2 w-full md:w-auto flex-1 flex-wrap sm:flex-nowrap">
+              <div class="w-full sm:w-64 relative">
+                <svg class="w-4 h-4 text-slate-400 absolute left-3.5 top-3" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z"/></svg>
+                <input type="text" id="searchOansistaInput" placeholder="Buscar por nome, fone..." 
+                       class="w-full pl-9 pr-4 py-2 rounded-xl border border-slate-200 text-xs focus:outline-none focus:ring-2 focus:ring-blue-600 font-medium">
+              </div>
+
+              <!-- FILTRO DE ANO -->
+              <div class="flex items-center gap-1.5 shrink-0">
+                <label for="filterYearSelect" class="text-xs font-bold text-slate-600 hidden sm:inline">Ano:</label>
+                <select id="filterYearSelect" class="bg-slate-50 dark:bg-slate-700 text-slate-800 dark:text-slate-200 border border-slate-200 dark:border-slate-600 rounded-xl px-3 py-2 text-xs font-bold focus:outline-none focus:ring-2 focus:ring-blue-600">
+                  <option value="todos">Todos os Anos</option>
+                  <option value="2027" selected>Ano 2027</option>
+                  <option value="2026">Ano 2026</option>
+                  <option value="2028">Ano 2028</option>
+                  <option value="2029">Ano 2029</option>
+                </select>
+              </div>
+
+              <!-- FILTRO DE TIPO: OANSISTAS / LÍDERES -->
+              <div class="flex items-center gap-1.5 shrink-0">
+                <label for="filterMemberTypeSelect" class="text-xs font-bold text-slate-600 hidden sm:inline">Exibir:</label>
+                <select id="filterMemberTypeSelect" class="bg-slate-50 dark:bg-slate-700 text-slate-800 dark:text-slate-200 border border-slate-200 dark:border-slate-600 rounded-xl px-3 py-2 text-xs font-bold focus:outline-none focus:ring-2 focus:ring-blue-600">
+                  <option value="todos" selected>Todos os Cadastros</option>
+                  <option value="oansista">👦 Apenas Oansistas</option>
+                  <option value="lider">👔 Apenas Líderes</option>
+                </select>
+              </div>
+            </div>
+
+            <div class="flex items-center space-x-2.5 w-full md:w-auto justify-between sm:justify-end flex-wrap gap-2">
+              <span id="oansistasCountBadge" class="text-xs font-bold text-slate-500 bg-slate-100 px-3 py-1.5 rounded-xl">
+                0 cadastrado(s)
+              </span>
+
+              <!-- Botão Cadastrar Novo Oansista -->
+              <button onclick="oansistasManager.openNewOansistaModal(null, 'oansista')" class="px-3.5 py-2 bg-emerald-600 hover:bg-emerald-700 text-white font-extrabold text-xs rounded-xl shadow-xs transition flex items-center gap-1.5">
+                <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" d="M12 4v16m8-8H4"/></svg>
+                <span>+ Oansista</span>
+              </button>
+
+              <!-- Botão Cadastrar Ficha de Líder (Card Cinza Padrão) -->
+              <button onclick="oansistasManager.openNewOansistaModal(null, 'lider')" class="px-3.5 py-2 bg-slate-700 hover:bg-slate-800 text-white font-extrabold text-xs rounded-xl shadow-xs transition flex items-center gap-1.5 border border-slate-600">
+                <span>👔</span>
+                <span>+ Ficha de Líder</span>
+              </button>
+            </div>
+
+          </div>
+
+          <!-- Container de Cards dos Oansistas -->
+          <div id="oansistasCardsContainer" class="w-full">
+            <!-- Injetado dinamicamente via oansistas.js -->
+          </div>
+
+        </div> <!-- fecha relative z-10 de leaderDashboardSection -->
+      </div>
+
+    </section>
+
+
+
+    <!-- ======================================================== -->
+    <!-- 3ª ABA: CALENDÁRIO DO OANSE 2027                          -->
+    <!-- ======================================================== -->
+    <section id="tab-calendario" class="tab-content hidden">
+
+      <!-- Cabeçalho do Calendário e Navegador de Meses -->
+      <div id="calendarMonthNav" class="mb-6">
+        <!-- Injetado dinamicamente via calendar.js -->
+      </div>
+
+      <!-- Grade Principal do Mês de 2027 -->
+      <div class="bg-white rounded-3xl p-4 sm:p-6 border border-slate-200 shadow-sm mb-8">
+        <div id="calendarGrid">
+          <!-- Injetado dinamicamente via calendar.js -->
+        </div>
+      </div>
+
+      <!-- Resumo dos Próximos Eventos do Ano de 2027 -->
+      <div class="bg-white rounded-3xl p-6 border border-slate-200 shadow-sm">
+        <div class="flex items-center justify-between mb-4">
+          <div>
+            <span class="text-xs font-black uppercase tracking-wider text-blue-600 bg-blue-50 px-2.5 py-0.5 rounded-full">Agenda 2027</span>
+            <h3 class="text-xl font-black text-slate-900 mt-1">Eventos & Programações do OANSE Maanaim</h3>
+          </div>
+          <button onclick="oanseCalendar.openEventModal()" class="text-xs font-bold text-blue-600 hover:text-blue-800 flex items-center gap-1 bg-blue-50 hover:bg-blue-100 px-3 py-1.5 rounded-xl transition">
+            + Adicionar Evento
+          </button>
+        </div>
+
+        <div id="upcomingEventsList" class="grid grid-cols-1 md:grid-cols-2 gap-3">
+          <!-- Injetado via calendar.js -->
+        </div>
+      </div>
+
+    </section>
+
+  </main>
+
+
+
+  <!-- ======================================================== -->
+  <!-- BARRA DE NAVEGAÇÃO INFERIOR FIXA (BOTTOM NAVIGATION TABS) -->
+  <!-- ======================================================== -->
+  <nav class="bottom-nav-bar flex items-center justify-around px-2 sm:px-8">
+    
+    <!-- 1ª ABA: Início & Clubes -->
+    <button data-tab-target="tab-inicio" class="flex-1 flex flex-col items-center justify-center py-1 transition-all duration-200 text-blue-600">
+      <div class="tab-icon w-6 h-6 mb-1 transition-transform">
+        <svg fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 12l2-2m0 0l7-7 7 7M5 10v10a1 1 0 001 1h3m10-11l2 2m-2-2v10a1 1 0 01-1 1h-3m-6 0a1 1 0 001-1v-4a1 1 0 011-1h2a1 1 0 011 1v4a1 1 0 001 1m-6 0h6"/></svg>
+      </div>
+      <span class="tab-label text-[11px] font-black tracking-tight">1ª Início</span>
+    </button>
+
+    <!-- 2ª ABA: Fichas & Líderes -->
+    <button data-tab-target="tab-lideres" class="flex-1 flex flex-col items-center justify-center py-1 transition-all duration-200 text-slate-500 hover:text-blue-600">
+      <div class="tab-icon w-6 h-6 mb-1 transition-transform">
+        <svg fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12h6m-6 4h6m2 5H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z"/></svg>
+      </div>
+      <span class="tab-label text-[11px] font-semibold tracking-tight">2ª Fichas & Talentos</span>
+    </button>
+
+    <!-- 3ª ABA: Calendário 2027 -->
+    <button data-tab-target="tab-calendario" class="flex-1 flex flex-col items-center justify-center py-1 transition-all duration-200 text-slate-500 hover:text-blue-600">
+      <div class="tab-icon w-6 h-6 mb-1 transition-transform">
+        <svg fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M8 7V3m8 4V3m-9 8h10M5 21h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v12a2 2 0 002 2z"/></svg>
+      </div>
+      <span class="tab-label text-[11px] font-semibold tracking-tight">3ª Calendário 2027</span>
+    </button>
+
+  </nav>
+
+
+
+  <!-- ======================================================== -->
+  <!-- MODAL: VISUALIZADOR DE FARDA OFICIAL (FRENTE E VERSO)    -->
+  <!-- ======================================================== -->
+  <div id="uniformModal" class="modal-backdrop fixed inset-0 z-50 bg-slate-900/75 backdrop-blur-xs flex items-center justify-center p-4 hidden">
+    <div class="bg-white dark:bg-slate-800 rounded-3xl max-w-4xl w-full max-h-[92vh] overflow-y-auto p-5 sm:p-7 shadow-2xl border border-slate-200 dark:border-slate-700">
+      
+      <!-- Topo do Modal -->
+      <div class="flex items-center justify-between pb-4 border-b border-slate-100 dark:border-slate-700 mb-4">
+        <div>
+          <span class="text-[10px] font-black uppercase tracking-wider text-blue-600 bg-blue-50 dark:bg-blue-950/60 px-2.5 py-0.5 rounded-full">Fardamento Oficial</span>
+          <h3 id="uniformModalTitle" class="text-xl font-black text-slate-900 dark:text-white mt-1">Farda Oficial (Frente e Verso)</h3>
+        </div>
+        <button class="modal-close-btn text-slate-400 hover:text-slate-600 dark:hover:text-slate-200 p-1.5 rounded-lg transition">
+          <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12"/></svg>
+        </button>
+      </div>
+
+      <!-- Container da Imagem da Farda Oficial Enviada -->
+      <div id="uniformImageContainer" class="mb-5">
+        <!-- Imagem injetada via app.js -->
+      </div>
+
+      <!-- Detalhes e Instruções de Uso -->
+      <div id="uniformModalDetails" class="mb-5">
+        <!-- Injetado via app.js -->
+      </div>
+
+      <div class="pt-3 border-t border-slate-100 dark:border-slate-700 text-right">
+        <button class="modal-close-btn px-5 py-2.5 bg-slate-800 hover:bg-slate-900 text-white font-bold text-xs rounded-xl shadow transition">
+          Fechar
+        </button>
+      </div>
+
+    </div>
+  </div>
+
+
+  <!-- ======================================================== -->
+  <!-- MODAL: VISUALIZADOR DE MANUAIS OFICIAIS DO CLUBE         -->
+  <!-- ======================================================== -->
+  <div id="manualsModal" class="modal-backdrop fixed inset-0 z-50 bg-slate-900/75 backdrop-blur-xs flex items-center justify-center p-4 hidden">
+    <div class="bg-white dark:bg-slate-800 rounded-3xl max-w-3xl w-full max-h-[92vh] overflow-y-auto p-5 sm:p-7 shadow-2xl border border-slate-200 dark:border-slate-700">
+      
+      <!-- Topo do Modal -->
+      <div class="flex items-center justify-between pb-4 border-b border-slate-100 dark:border-slate-700 mb-5">
+        <div class="flex items-center gap-3">
+          <div class="w-12 h-12 rounded-2xl bg-blue-50 dark:bg-blue-900/40 text-blue-600 dark:text-blue-300 flex items-center justify-center p-2.5 shrink-0 shadow-xs border border-blue-100 dark:border-blue-800">
+            <svg class="w-7 h-7" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 6.253v13m0-13C10.832 5.477 9.246 5 7.5 5S4.168 5.477 3 6.253v13C4.168 18.477 5.754 18 7.5 18s3.332.477 4.5 1.253m0-13C13.168 5.477 14.754 5 16.5 5c1.747 0 3.332.477 4.5 1.253v13C19.832 18.477 18.247 18 16.5 18c-1.746 0-3.332.477-4.5 1.253"/></svg>
+          </div>
+          <div>
+            <span class="text-[10px] font-black uppercase tracking-wider text-blue-600 dark:text-blue-400 bg-blue-50 dark:bg-blue-950/60 px-2.5 py-0.5 rounded-full">Material Didático Oficial</span>
+            <h3 id="manualsModalTitle" class="text-xl font-black text-slate-900 dark:text-white mt-1">Manuais do Clube</h3>
+          </div>
+        </div>
+        <button class="modal-close-btn text-slate-400 hover:text-slate-600 dark:hover:text-slate-200 p-1.5 rounded-lg transition">
+          <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12"/></svg>
+        </button>
+      </div>
+
+      <!-- Container dos Manuais do Clube -->
+      <div id="manualsModalList" class="space-y-4 mb-6">
+        <!-- Injetado via app.js -->
+      </div>
+
+      <!-- Rodapé do Modal -->
+      <div class="pt-4 border-t border-slate-100 dark:border-slate-700 flex flex-col sm:flex-row items-center justify-between gap-3">
+        <span class="text-xs text-slate-500 dark:text-slate-400">Cada seção falada gera pontos de talentos contabilizados na ficha do oansista.</span>
+        <button class="modal-close-btn w-full sm:w-auto px-5 py-2.5 bg-slate-800 hover:bg-slate-900 text-white font-bold text-xs rounded-xl shadow transition">
+          Fechar
+        </button>
+      </div>
+
+    </div>
+  </div>
+
+
+  <!-- ======================================================== -->
+  <!-- MODAL: VISUALIZADOR DE FAIXA DO CLUBE                     -->
+  <!-- ======================================================== -->
+  <div id="sashModal" class="modal-backdrop fixed inset-0 z-50 bg-slate-900/75 backdrop-blur-xs flex items-center justify-center p-4 hidden">
+    <div class="bg-white dark:bg-slate-800 rounded-3xl max-w-3xl w-full max-h-[92vh] overflow-y-auto p-5 sm:p-7 shadow-2xl border border-slate-200 dark:border-slate-700">
+      
+      <!-- Topo do Modal -->
+      <div class="flex items-center justify-between pb-4 border-b border-slate-100 dark:border-slate-700 mb-5">
+        <div class="flex items-center gap-3">
+          <div class="w-12 h-12 rounded-2xl bg-amber-50 dark:bg-amber-900/40 text-amber-600 dark:text-amber-400 flex items-center justify-center p-2.5 shrink-0 shadow-xs border border-amber-100 dark:border-amber-800">
+            <svg class="w-7 h-7" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 3v4M3 5h4M6 17v4m-2-2h4m5-16l2.286 6.857L21 12l-5.714 2.143L13 21l-2.286-6.857L5 12l5.714-2.143L13 3z"/></svg>
+          </div>
+          <div>
+            <span class="text-[10px] font-black uppercase tracking-wider text-amber-600 dark:text-amber-400 bg-amber-50 dark:bg-amber-950/60 px-2.5 py-0.5 rounded-full">Faixa e Condecorações Oficiais</span>
+            <h3 id="sashModalTitle" class="text-xl font-black text-slate-900 dark:text-white mt-1">Faixa do Clube</h3>
+          </div>
+        </div>
+        <button class="modal-close-btn text-slate-400 hover:text-slate-600 dark:hover:text-slate-200 p-1.5 rounded-lg transition">
+          <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12"/></svg>
+        </button>
+      </div>
+
+      <!-- Container da Ilustração/Visualização da Faixa -->
+      <div id="sashModalImageContainer" class="mb-5">
+        <!-- Injetado via app.js -->
+      </div>
+
+      <!-- Detalhes e Condecorações da Faixa -->
+      <div id="sashModalDetails" class="mb-5">
+        <!-- Injetado via app.js -->
+      </div>
+
+      <!-- Rodapé do Modal -->
+      <div class="pt-4 border-t border-slate-100 dark:border-slate-700 flex flex-col sm:flex-row items-center justify-between gap-3">
+        <span class="text-xs text-slate-500 dark:text-slate-400">As condecorações são entregues aos oansistas conforme o avanço nos manuais e presenças.</span>
+        <button class="modal-close-btn w-full sm:w-auto px-5 py-2.5 bg-slate-800 hover:bg-slate-900 text-white font-bold text-xs rounded-xl shadow transition">
+          Fechar
+        </button>
+      </div>
+
+    </div>
+  </div>
+
+
+  <!-- ======================================================== -->
+  <!-- MODAL: FORMULÁRIO DO OANSISTA (NOVO / EDITAR)            -->
+  <!-- ======================================================== -->
+  <div id="oansistaFormModal" class="modal-backdrop fixed inset-0 z-50 bg-slate-900/60 backdrop-blur-xs flex items-center justify-center p-4 hidden">
+    <div class="bg-white rounded-3xl max-w-lg w-full max-h-[90vh] overflow-y-auto p-6 shadow-2xl border border-slate-200">
+      
+      <div class="flex items-center justify-between pb-4 border-b border-slate-100 mb-4">
+        <h3 id="oansistaModalTitle" class="text-lg font-black text-slate-900">Cadastrar Novo Oansista</h3>
+        <button class="modal-close-btn text-slate-400 hover:text-slate-600 p-1.5 rounded-lg">
+          <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12"/></svg>
+        </button>
+      </div>
+
+      <input type="hidden" id="formOansistaId">
+
+      <div class="space-y-3.5 text-xs">
+        <!-- TIPO DE CADASTRO: OANSISTA OU LÍDER -->
+        <div class="grid grid-cols-1 sm:grid-cols-2 gap-3 bg-slate-50 p-2.5 rounded-xl border border-slate-200">
+          <div>
+            <label class="block font-bold text-slate-700 uppercase tracking-wider mb-1">Tipo de Ficha *</label>
+            <select id="formOanType" onchange="oansistasManager.handleTypeChange(this.value)" class="w-full px-3 py-2 rounded-lg border border-slate-300 focus:outline-none focus:ring-2 focus:ring-blue-600 font-bold text-xs bg-white">
+              <option value="oansista" selected>👦 Oansista</option>
+              <option value="lider">👔 Líder do Clube (Card Cinza Padrão)</option>
+            </select>
+          </div>
+          <div id="formOanRoleGroup" class="hidden">
+            <label class="block font-bold text-slate-700 uppercase tracking-wider mb-1">Função / Cargo do Líder</label>
+            <input type="text" id="formOanRole" placeholder="Ex: Líder de Equipe, Coordenador..." class="w-full px-3 py-2 rounded-lg border border-slate-300 focus:outline-none focus:ring-2 focus:ring-blue-600 font-bold text-xs bg-white">
+          </div>
+        </div>
+
+        <div>
+          <label class="block font-bold text-slate-700 uppercase tracking-wider mb-1">Nome Completo *</label>
+          <input type="text" id="formOanName" required placeholder="Nome completo" class="w-full px-3.5 py-2.5 rounded-xl border border-slate-300 focus:outline-none focus:ring-2 focus:ring-blue-600 font-semibold text-sm">
+        </div>
+
+        <div class="grid grid-cols-3 gap-3">
+          <div>
+            <label class="block font-bold text-slate-700 uppercase tracking-wider mb-1">Idade *</label>
+            <input type="number" id="formOanAge" required min="3" max="90" placeholder="Ex: 9 ou 30" class="w-full px-3.5 py-2.5 rounded-xl border border-slate-300 focus:outline-none focus:ring-2 focus:ring-blue-600 font-semibold text-sm">
+          </div>
+          <div>
+            <label class="block font-bold text-slate-700 uppercase tracking-wider mb-1">Data de Nasc.</label>
+            <input type="date" id="formOanBirth" class="w-full px-3.5 py-2.5 rounded-xl border border-slate-300 focus:outline-none focus:ring-2 focus:ring-blue-600 font-semibold text-sm">
+          </div>
+          <div>
+            <!-- SELEÇÃO DE ANO CONFORME SOLICITADO -->
+            <label class="block font-bold text-slate-700 uppercase tracking-wider mb-1">Ano *</label>
+            <select id="formOanYear" class="w-full px-3.5 py-2.5 rounded-xl border border-slate-300 focus:outline-none focus:ring-2 focus:ring-blue-600 font-semibold text-sm">
+              <option value="2027" selected>2027</option>
+              <option value="2026">2026</option>
+              <option value="2028">2028</option>
+              <option value="2029">2029</option>
+            </select>
+          </div>
+        </div>
+
+        <div class="grid grid-cols-2 gap-3">
+          <div>
+            <label class="block font-bold text-slate-700 uppercase tracking-wider mb-1">Clube Pertencente</label>
+            <select id="formOanClub" class="w-full px-3.5 py-2.5 rounded-xl border border-slate-300 focus:outline-none focus:ring-2 focus:ring-blue-600 font-semibold text-sm">
+              <option value="ursinho">Clube Ursinho (4 e 5 anos)</option>
+              <option value="faisca">Clube Faísca (6 a 8 anos)</option>
+              <option value="flama">Clube Flama (9 e 10 anos)</option>
+              <option value="tocha">Clube Tocha (11 e 12 anos)</option>
+              <option value="jv">Clube JV (13 e 14 anos)</option>
+              <option value="vq7">Clube VQ7 (15 anos em diante)</option>
+            </select>
+          </div>
+          <div>
+            <label class="block font-bold text-slate-700 uppercase tracking-wider mb-1">Telefone / WhatsApp</label>
+            <input type="tel" id="formOanPhone" placeholder="(XX) XXXXX-XXXX" class="w-full px-3.5 py-2.5 rounded-xl border border-slate-300 focus:outline-none focus:ring-2 focus:ring-blue-600 font-semibold text-sm">
+          </div>
+        </div>
+
+        <div>
+          <label class="block font-bold text-slate-700 uppercase tracking-wider mb-1">Mora com os pais:</label>
+          <select id="formOanLiving" class="w-full px-3.5 py-2.5 rounded-xl border border-slate-300 focus:outline-none focus:ring-2 focus:ring-blue-600 font-semibold text-sm">
+            <option value="Os pais">Os pais</option>
+            <option value="Só mãe">Só mãe</option>
+            <option value="Só pai">Só pai</option>
+            <option value="Avós">Avós</option>
+            <option value="Responsáveis">Responsáveis</option>
+          </select>
+        </div>
+
+        <div>
+          <label class="block font-bold text-slate-700 uppercase tracking-wider mb-1">Endereço Residencial</label>
+          <input type="text" id="formOanAddress" placeholder="Rua, número, bairro..." class="w-full px-3.5 py-2.5 rounded-xl border border-slate-300 focus:outline-none focus:ring-2 focus:ring-blue-600 font-semibold text-sm">
+        </div>
+
+        <div>
+          <label class="block font-bold text-slate-700 uppercase tracking-wider mb-1">Observações do Líder</label>
+          <textarea id="formOanNotes" rows="2" placeholder="Alergias, observações de comportamento..." class="w-full px-3.5 py-2.5 rounded-xl border border-slate-300 focus:outline-none focus:ring-2 focus:ring-blue-600 text-xs"></textarea>
+        </div>
+      </div>
+
+      <div class="mt-6 pt-4 border-t border-slate-100 flex items-center justify-end space-x-2">
+        <button class="modal-close-btn px-4 py-2 rounded-xl text-slate-600 hover:bg-slate-100 font-bold text-xs transition">
+          Cancelar
+        </button>
+        <button id="btnSaveOansista" class="px-5 py-2.5 rounded-xl bg-blue-600 hover:bg-blue-700 text-white font-black text-xs shadow transition">
+          Salvar Oansista
+        </button>
+      </div>
+
+    </div>
+  </div>
+
+
+  <!-- ======================================================== -->
+  <!-- MODAL: EVENTOS DO DIA (CALENDÁRIO 2027)                  -->
+  <!-- ======================================================== -->
+  <div id="dayEventsModal" class="modal-backdrop fixed inset-0 z-50 bg-slate-900/60 backdrop-blur-xs flex items-center justify-center p-4 hidden">
+    <div class="bg-white rounded-3xl max-w-md w-full p-6 shadow-2xl border border-slate-200">
+      
+      <div class="flex items-center justify-between pb-3 border-b border-slate-100 mb-4">
+        <h3 id="dayEventsModalTitle" class="text-base font-black text-slate-900">Eventos do Dia</h3>
+        <button class="modal-close-btn text-slate-400 hover:text-slate-600 p-1 rounded-lg">
+          <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12"/></svg>
+        </button>
+      </div>
+
+      <div id="dayEventsModalBody" class="max-h-60 overflow-y-auto mb-4">
+        <!-- Injetado via calendar.js -->
+      </div>
+
+      <div class="flex items-center justify-between pt-3 border-t border-slate-100">
+        <button class="modal-close-btn text-xs font-bold text-slate-500">Fechar</button>
+        <button id="btnOpenAddEventFromDay" class="px-4 py-2 bg-blue-600 hover:bg-blue-700 text-white font-bold text-xs rounded-xl shadow transition">
+          + Adicionar Evento Neste Dia
+        </button>
+      </div>
+
+    </div>
+  </div>
+
+
+  <!-- ======================================================== -->
+  <!-- MODAL: NOVO EVENTO (CALENDÁRIO 2027)                     -->
+  <!-- ======================================================== -->
+  <div id="addEventModal" class="modal-backdrop fixed inset-0 z-50 bg-slate-900/60 backdrop-blur-xs flex items-center justify-center p-4 hidden">
+    <div class="bg-white rounded-3xl max-w-md w-full p-6 shadow-2xl border border-slate-200">
+      
+      <div class="flex items-center justify-between pb-3 border-b border-slate-100 mb-4">
+        <h3 class="text-base font-black text-slate-900">Novo Evento OANSE 2027</h3>
+        <button class="modal-close-btn text-slate-400 hover:text-slate-600 p-1 rounded-lg">
+          <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12"/></svg>
+        </button>
+      </div>
+
+      <div class="space-y-3 text-xs">
+        <div>
+          <label class="block font-bold text-slate-700 uppercase tracking-wider mb-1">Título do Evento *</label>
+          <input type="text" id="eventTitleInput" placeholder="Ex: Feira de Talentos / Encontro Regular" class="w-full px-3 py-2 rounded-xl border border-slate-300 focus:outline-none focus:ring-2 focus:ring-blue-600 font-semibold text-sm">
+        </div>
+
+        <div class="grid grid-cols-2 gap-3">
+          <div>
+            <label class="block font-bold text-slate-700 uppercase tracking-wider mb-1">Data (Ano 2027) *</label>
+            <input type="date" id="eventDateInput" min="2027-01-01" max="2027-12-31" class="w-full px-3 py-2 rounded-xl border border-slate-300 focus:outline-none focus:ring-2 focus:ring-blue-600 font-semibold text-sm">
+          </div>
+          <div>
+            <label class="block font-bold text-slate-700 uppercase tracking-wider mb-1">Horário</label>
+            <input type="text" id="eventTimeInput" placeholder="Ex: 14:30 - 17:00" class="w-full px-3 py-2 rounded-xl border border-slate-300 focus:outline-none focus:ring-2 focus:ring-blue-600 font-semibold text-sm">
+          </div>
+        </div>
+
+        <div class="grid grid-cols-2 gap-3">
+          <div>
+            <label class="block font-bold text-slate-700 uppercase tracking-wider mb-1">Clube Envolvido</label>
+            <select id="eventClubSelect" class="w-full px-3 py-2 rounded-xl border border-slate-300 focus:outline-none focus:ring-2 focus:ring-blue-600 font-semibold text-sm">
+              <option value="todos">Todos os Clubes</option>
+              <option value="ursinho">Ursinho</option>
+              <option value="faisca">Faísca</option>
+              <option value="flama">Flama</option>
+              <option value="tocha">Tocha</option>
+              <option value="jv">JV</option>
+              <option value="vq7">VQ7</option>
+            </select>
+          </div>
+          <div>
+            <label class="block font-bold text-slate-700 uppercase tracking-wider mb-1">Tipo de Evento</label>
+            <select id="eventTypeSelect" class="w-full px-3 py-2 rounded-xl border border-slate-300 focus:outline-none focus:ring-2 focus:ring-blue-600 font-semibold text-sm">
+              <option value="regular">Reunião Regular (Sábado)</option>
+              <option value="talentos">Feira de Talentos</option>
+              <option value="competicao">Olimpíadas / Jogos</option>
+              <option value="investidura">Investidura / Premiação</option>
+              <option value="especial">Culto Especial / Acampamento</option>
+            </select>
+          </div>
+        </div>
+
+        <div>
+          <label class="block font-bold text-slate-700 uppercase tracking-wider mb-1">Local / Sala</label>
+          <input type="text" id="eventLocationInput" placeholder="Ex: Templo Principal / Salão Social" class="w-full px-3 py-2 rounded-xl border border-slate-300 focus:outline-none focus:ring-2 focus:ring-blue-600 font-semibold text-sm">
+        </div>
+
+        <div>
+          <label class="block font-bold text-slate-700 uppercase tracking-wider mb-1">Descrição</label>
+          <textarea id="eventDescInput" rows="2" placeholder="Detalhes da programação..." class="w-full px-3 py-2 rounded-xl border border-slate-300 focus:outline-none focus:ring-2 focus:ring-blue-600 text-xs"></textarea>
+        </div>
+      </div>
+
+      <div class="mt-5 pt-3 border-t border-slate-100 flex items-center justify-end space-x-2">
+        <button class="modal-close-btn px-4 py-2 text-xs font-bold text-slate-500">Cancelar</button>
+        <button id="btnSaveNewEvent" class="px-5 py-2.5 bg-blue-600 hover:bg-blue-700 text-white font-black text-xs rounded-xl shadow transition">
+          Salvar Evento
+        </button>
+      </div>
+
+    </div>
+  </div>
+
+
+  <!-- ================= FIREBASE SDKs (Compat via CDN) ================= -->
+  <script src="https://www.gstatic.com/firebasejs/10.12.0/firebase-app-compat.js"></script>
+  <script src="https://www.gstatic.com/firebasejs/10.12.0/firebase-firestore-compat.js"></script>
+
+  <!-- ================= SCRIPTS ================= -->
+  <script src="js/firebase-config.js"></script>
+  <script src="js/data-clubs.js"></script>
+  <script src="js/data-manuals.js"></script>
+  <script src="js/calendar.js"></script>
+  <script src="js/oansistas.js"></script>
+  <script src="js/app.js"></script>
+
+</body>
+</html>

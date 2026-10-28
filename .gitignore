@@ -1,0 +1,9 @@
+# Screenshots e testes temporários de desenvolvimento
+screenshot_*.png
+*.ps1
+
+# Arquivos de sistema e IDEs
+.vscode/
+.idea/
+.DS_Store
+Thumbs.db
