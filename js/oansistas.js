@@ -366,7 +366,7 @@ class OansistasManager {
 
     return { 
       success: false, 
-      message: "Senha não reconhecida. Digite a senha do seu clube (ex: ursinho2027, faisca2027, flama2027, tocha2027, jv2027, vq72027 ou maanaim2027)." 
+      message: "Senha não reconhecida. Verifique com a liderança do seu clube ou coordenação." 
     };
   }
 
