@@ -196,12 +196,12 @@ const CLUBS_DATA = {
     borderColor: "#0A1931", // Azul Marinho
     colorLight: "#E0E7FF",
     colorDark: "#051329",
-    age: "15 anos em diante",
+    age: "15 a 18 anos",
     gender: "Jovens e Adolescentes",
     motto: "Viver inteiramente para Jesus 24 horas por dia nos 7 dias da semana, porque a missão do cristão nunca para!",
     verse: '"Pois não me envergonho do evangelho, porque é o poder de Deus para a salvação de todo aquele que crê, primeiro do judeu e também do grego; visto que a justiça de Deus se revela no evangelho, de fé em fé, como está escrito: O justo viverá por fé." (Romanos 1:16-17)',
     password: "vq72027",
-    description: "O Clube VQ7 - 24 horas, 7 dias da semana - é para adolescentes de 15 anos em diante e prepara-os para cumprirem sua missão: “Viver inteiramente para Jesus 24 horas por dia nos 7 dias da semana, porque a missão do cristão nunca para!”. 🧡\n\nSeu material é dividido em: Fundamentos da Fé (4 panfletos de introdução), os Estudos Principais com 3 cartas paulinas (Romanos, Efésios e Gálatas) e os Estudos Complementares que abordam temas bíblicos diversos (Vontade de Deus; Homens e Mulheres de Deus etc).\n\nNeste Clube temos um programa com o objetivo de levar nossos jovens a estudarem os livros da Bíblia, tirando dúvidas, trazendo explicações e fortalecendo-os cada vez mais na fé. E assim como os outros clubes, também temos premiações e projetos de serviços e missões no VQ7.",
+    description: "O Clube VQ7 - 24 horas, 7 dias da semana - é para adolescentes de 15 a 18 anos e prepara-os para cumprirem sua missão: “Viver inteiramente para Jesus 24 horas por dia nos 7 dias da semana, porque a missão do cristão nunca para!”. 🧡\n\nSeu material é dividido em: Fundamentos da Fé (4 panfletos de introdução), os Estudos Principais com 3 cartas paulinas (Romanos, Efésios e Gálatas) e os Estudos Complementares que abordam temas bíblicos diversos (Vontade de Deus; Homens e Mulheres de Deus etc).\n\nNeste Clube temos um programa com o objetivo de levar nossos jovens a estudarem os livros da Bíblia, tirando dúvidas, trazendo explicações e fortalecendo-os cada vez mais na fé. E assim como os outros clubes, também temos premiações e projetos de serviços e missões no VQ7.",
     manuals: [
       { 
         id: "fundamentos", 
