@@ -35,6 +35,26 @@ h1, h2, h3, .font-display {
   font-family: var(--font-display);
 }
 
+/* Site Header Brand Title */
+.site-brand-title {
+  font-family: var(--font-display);
+  font-size: 11px;
+  font-weight: 900;
+  color: #0f172a;
+  line-height: 1.25;
+  white-space: normal;
+  word-break: break-word;
+  max-width: 170px;
+}
+
+@media (min-width: 640px) {
+  .site-brand-title {
+    font-size: 16px;
+    max-width: none;
+    white-space: nowrap;
+  }
+}
+
 /* Glassmorphism & Cards */
 .glass-panel {
   background: rgba(255, 255, 255, 0.85);
@@ -132,7 +152,7 @@ h1, h2, h3, .font-display {
   input[type="date"],
   select,
   textarea {
-    font-size: 14px !important;
+    font-size: 16px !important;
   }
 
   /* Ensure bottom nav safe area and spacing */

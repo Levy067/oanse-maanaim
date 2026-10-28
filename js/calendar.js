@@ -194,7 +194,7 @@ class OanseCalendar {
       
       const dayEvents = this.events.filter(e => e.date === dateStr);
 
-      let cardClasses = "min-h-[75px] md:min-h-[95px] p-1.5 md:p-2 bg-white dark:bg-slate-800 border rounded-xl transition duration-150 cursor-pointer relative flex flex-col justify-between group shadow-xs hover:shadow-md hover:border-blue-400 ";
+      let cardClasses = "min-h-[75px] md:min-h-[95px] p-1 sm:p-1.5 md:p-2 bg-white dark:bg-slate-800 border rounded-xl transition duration-150 cursor-pointer relative flex flex-col justify-between group shadow-xs hover:shadow-md hover:border-blue-400 overflow-hidden ";
       
       if (isSaturday) {
         cardClasses += "border-blue-200 dark:border-blue-900/60 bg-gradient-to-b from-blue-50/60 to-white dark:from-blue-950/20 dark:to-slate-800 ";
@@ -204,10 +204,10 @@ class OanseCalendar {
 
       html += `
         <div class="${cardClasses}" onclick="oanseCalendar.onDayClicked('${dateStr}')">
-          <div class="flex items-center justify-between mb-1">
-            <span class="inline-flex items-center justify-center w-6 h-6 text-xs font-black rounded-lg ${
+          <div class="flex flex-col sm:flex-row items-start sm:items-center justify-between gap-0.5 sm:gap-1 mb-1 w-full">
+            <span class="inline-flex items-center justify-center w-5 h-5 sm:w-6 sm:h-6 text-[10px] sm:text-xs font-black rounded-md sm:rounded-lg ${
               isSaturday 
-                ? 'bg-blue-600 text-white shadow-xs' 
+                ? 'bg-blue-600 text-white shadow-2xs' 
                 : isSunday 
                   ? 'text-rose-600 bg-rose-50 dark:bg-rose-950/40' 
                   : 'text-slate-700 dark:text-slate-300'
@@ -215,19 +215,22 @@ class OanseCalendar {
               ${day}
             </span>
 
-            ${isSaturday ? '<span class="text-[9px] font-bold uppercase tracking-tight text-blue-700 dark:text-blue-300 bg-blue-100 dark:bg-blue-900/60 px-1 rounded">Clube</span>' : ''}
+            ${isSaturday ? `
+              <span class="hidden sm:inline-block text-[9px] font-extrabold uppercase tracking-tight text-blue-700 dark:text-blue-300 bg-blue-100 dark:bg-blue-900/60 px-1 py-0.5 rounded leading-none">Clube</span>
+              <span class="sm:hidden text-[7px] font-black uppercase text-blue-700 dark:text-blue-300 bg-blue-100 dark:bg-blue-900/60 px-0.5 py-0.2 rounded leading-none">Clube</span>
+            ` : ''}
           </div>
 
-          <div class="flex-1 overflow-hidden space-y-1">
+          <div class="flex-1 overflow-hidden space-y-0.5 sm:space-y-1 w-full">
             ${dayEvents.slice(0, 2).map(ev => `
-              <div class="text-[10px] md:text-xs font-bold truncate px-1.5 py-0.5 rounded-md ${this.getEventBadgeStyle(ev.type, ev.club)}" title="${ev.title} (${ev.time || ''})">
+              <div class="text-[8px] xs:text-[9px] sm:text-[10px] md:text-xs font-bold truncate px-1 py-0.5 rounded ${this.getEventBadgeStyle(ev.type, ev.club)}" title="${ev.title} (${ev.time || ''})">
                 ${ev.title}
               </div>
             `).join("")}
-            ${dayEvents.length > 2 ? `<div class="text-[9px] font-bold text-slate-500 pl-1">+${dayEvents.length - 2} mais</div>` : ''}
+            ${dayEvents.length > 2 ? `<div class="text-[8px] sm:text-[9px] font-bold text-slate-500 pl-0.5">+${dayEvents.length - 2}</div>` : ''}
           </div>
 
-          <div class="opacity-0 group-hover:opacity-100 transition text-[10px] text-blue-600 dark:text-blue-400 font-bold flex items-center justify-end mt-1">
+          <div class="opacity-0 group-hover:opacity-100 transition text-[9px] sm:text-[10px] text-blue-600 dark:text-blue-400 font-bold flex items-center justify-end mt-0.5">
             <span>+ evento</span>
           </div>
         </div>

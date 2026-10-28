@@ -310,10 +310,25 @@ class OansistasManager {
   }
 
   authenticate(password) {
-    const trimmed = password.trim();
+    if (!password || typeof password !== "string") {
+      return { success: false, message: "Por favor, digite a senha de acesso." };
+    }
 
-    // Senha Mestra (Acesso Geral a Todos os Clubes)
-    if (trimmed === MASTER_PASSWORD) {
+    const raw = password.trim();
+    // Normalização completa: minúsculas, sem acentos (NFD), sem espaços
+    const clean = raw
+      .toLowerCase()
+      .normalize("NFD")
+      .replace(/[\u0300-\u036f]/g, "")
+      .replace(/\s+/g, "");
+
+    if (!clean) {
+      return { success: false, message: "Por favor, digite a senha de acesso." };
+    }
+
+    // 1. Senha Mestra (Pastor / Coordenação Geral - Todos os Clubes)
+    const masterAliases = ["maanaim2027", "maanaim", "admin2027", "admin", "coordenacao", "pastor"];
+    if (masterAliases.includes(clean) || raw === MASTER_PASSWORD) {
       this.isAuthenticated = true;
       this.isMasterAdmin = true;
       this.currentClub = "todos";
@@ -323,9 +338,22 @@ class OansistasManager {
       return { success: true, club: "todos", isMaster: true };
     }
 
-    // Verificar senha específica de cada clube
+    // 2. Mapeamento de variantes aceitas para cada clube (com ou sem 2027, plural, sem acentos)
+    const clubAliases = {
+      ursinho: ["ursinho2027", "ursinho", "ursinhos2027", "ursinhos", "clubeursinho", "clubeursinhos"],
+      faisca: ["faisca2027", "faisca", "faiscas2027", "faiscas", "clubefaisca", "clubefaiscas"],
+      flama: ["flama2027", "flama", "flamas2027", "flamas", "clubeflama", "clubeflamas"],
+      tocha: ["tocha2027", "tocha", "tochas2027", "tochas", "clubetocha", "clubetochas"],
+      jv: ["jv2027", "jv", "jovensvencedores", "jovensvencedores2027", "clubejv"],
+      vq7: ["vq72027", "vq7", "v247", "v2472027", "clubevq7"]
+    };
+
+    // 3. Testar cada clube cadastrado
     for (const [clubKey, data] of Object.entries(CLUBS_DATA)) {
-      if (data.password === trimmed) {
+      const allowed = clubAliases[clubKey] || [];
+      const officialNorm = (data.password || "").toLowerCase().normalize("NFD").replace(/[\u0300-\u036f]/g, "").trim();
+
+      if (raw === data.password || clean === officialNorm || allowed.includes(clean)) {
         this.isAuthenticated = true;
         this.isMasterAdmin = false;
         this.currentClub = clubKey;
@@ -336,7 +364,10 @@ class OansistasManager {
       }
     }
 
-    return { success: false, message: "Senha incorreta. Verifique a senha do seu clube." };
+    return { 
+      success: false, 
+      message: "Senha não reconhecida. Digite a senha do seu clube (ex: ursinho2027, faisca2027, flama2027, tocha2027, jv2027, vq72027 ou maanaim2027)." 
+    };
   }
 
   logout() {
@@ -862,7 +893,6 @@ class OansistasManager {
 
         ${this.renderDropdownListHtml(list)}
       </div>
-    `;
     `;
   }
 
@@ -1611,6 +1641,7 @@ class OansistasManager {
   }
 
   attachAuthListeners() {
+    // Ação de Login
     document.getElementById("btnLeaderLogin")?.addEventListener("click", () => {
       const input = document.getElementById("leaderPasswordInput");
       const err = document.getElementById("leaderLoginError");
@@ -1624,12 +1655,37 @@ class OansistasManager {
         }
       } else {
         if (err) err.classList.add("hidden");
+        input.value = "";
       }
     });
 
+    // Enter para submeter formulário de login
     document.getElementById("leaderPasswordInput")?.addEventListener("keypress", (e) => {
       if (e.key === "Enter") {
         document.getElementById("btnLeaderLogin")?.click();
+      }
+    });
+
+    // Limpar mensagem de erro ao digitar
+    document.getElementById("leaderPasswordInput")?.addEventListener("input", () => {
+      const err = document.getElementById("leaderLoginError");
+      if (err) err.classList.add("hidden");
+    });
+
+    // Toggle para visualizar/ocultar senha no mobile/desktop
+    document.getElementById("btnToggleLeaderPassword")?.addEventListener("click", () => {
+      const input = document.getElementById("leaderPasswordInput");
+      const eyeOpen = document.getElementById("eyeIconOpen");
+      const eyeClosed = document.getElementById("eyeIconClosed");
+      if (!input) return;
+      if (input.type === "password") {
+        input.type = "text";
+        eyeOpen?.classList.add("hidden");
+        eyeClosed?.classList.remove("hidden");
+      } else {
+        input.type = "password";
+        eyeOpen?.classList.remove("hidden");
+        eyeClosed?.classList.add("hidden");
       }
     });
 
