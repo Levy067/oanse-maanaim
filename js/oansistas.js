@@ -624,10 +624,10 @@ class OansistasManager {
           <p class="text-sm text-slate-500 max-w-md mx-auto mt-1 mb-4">Verifique os filtros de clube, ano e tipo de ficha.</p>
           <div class="flex items-center justify-center gap-3">
             <button onclick="oansistasManager.openNewOansistaModal('${targetClub || 'flama'}', 'oansista')" class="px-4 py-2 bg-emerald-600 text-white rounded-xl font-bold shadow hover:bg-emerald-700 transition">
-              + Novo Oansista
+              + Oansista
             </button>
             <button onclick="oansistasManager.openNewOansistaModal('${targetClub || 'flama'}', 'lider')" class="px-4 py-2 bg-slate-700 text-white rounded-xl font-bold shadow hover:bg-slate-800 transition">
-              👔 + Ficha de Líder
+              + Líder
             </button>
           </div>
         </div>
@@ -1002,10 +1002,11 @@ class OansistasManager {
                   <div class="inline-flex items-center gap-1 ${isLider ? 'bg-white/10 text-white border-white/20' : 'bg-blue-50 dark:bg-blue-900/40 text-blue-800 dark:text-blue-300 border-blue-200/80'} px-2 py-0.5 rounded-md border text-[10px] sm:text-[11px] font-bold">
                     <span>Ano:</span>
                     <select onchange="oansistasManager.updateOanYear('${oan.id}', this.value)" class="bg-transparent font-black cursor-pointer focus:outline-none ${isLider ? 'text-white' : ''}">
-                      <option value="2027" ${oanYear === 2027 ? 'selected' : ''} class="text-slate-900">2027</option>
                       <option value="2026" ${oanYear === 2026 ? 'selected' : ''} class="text-slate-900">2026</option>
+                      <option value="2027" ${oanYear === 2027 ? 'selected' : ''} class="text-slate-900">2027</option>
                       <option value="2028" ${oanYear === 2028 ? 'selected' : ''} class="text-slate-900">2028</option>
                       <option value="2029" ${oanYear === 2029 ? 'selected' : ''} class="text-slate-900">2029</option>
+                      <option value="2030" ${oanYear === 2030 ? 'selected' : ''} class="text-slate-900">2030</option>
                     </select>
                   </div>
                 </div>

@@ -459,17 +459,18 @@
               <!-- FILTRO DE ANO E FILTRO DE TIPO EM GRADE NO CELULAR -->
               <div class="grid grid-cols-2 gap-2 w-full sm:w-auto">
                 <select id="filterYearSelect" class="w-full bg-slate-50 dark:bg-slate-700 text-slate-800 dark:text-slate-200 border border-slate-200 dark:border-slate-600 rounded-xl px-2.5 py-2 text-xs font-bold focus:outline-none focus:ring-2 focus:ring-blue-600">
-                  <option value="todos">Todos Anos</option>
-                  <option value="2027" selected>Ano 2027</option>
-                  <option value="2026">Ano 2026</option>
-                  <option value="2028">Ano 2028</option>
-                  <option value="2029">Ano 2029</option>
+                  <option value="todos">Todos os anos</option>
+                  <option value="2026">2026</option>
+                  <option value="2027" selected>2027</option>
+                  <option value="2028">2028</option>
+                  <option value="2029">2029</option>
+                  <option value="2030">2030</option>
                 </select>
 
                 <select id="filterMemberTypeSelect" class="w-full bg-slate-50 dark:bg-slate-700 text-slate-800 dark:text-slate-200 border border-slate-200 dark:border-slate-600 rounded-xl px-2.5 py-2 text-xs font-bold focus:outline-none focus:ring-2 focus:ring-blue-600">
                   <option value="todos" selected>Todos Tipos</option>
-                  <option value="oansista">👦 Oansistas</option>
-                  <option value="lider">👔 Líderes</option>
+                  <option value="oansista">Oansistas</option>
+                  <option value="lider">Líderes</option>
                 </select>
               </div>
             </div>
@@ -482,14 +483,12 @@
               <div class="grid grid-cols-2 gap-2 flex-1 sm:flex-initial">
                 <!-- Botão Cadastrar Novo Oansista -->
                 <button onclick="oansistasManager.openNewOansistaModal(null, 'oansista')" class="px-3 py-2 bg-emerald-600 hover:bg-emerald-700 text-white font-extrabold text-xs rounded-xl shadow-xs transition flex items-center justify-center gap-1">
-                  <svg class="w-4 h-4 shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" d="M12 4v16m8-8H4"/></svg>
-                  <span>Oansista</span>
+                  <span>+ Oansista</span>
                 </button>
 
-                <!-- Botão Cadastrar Ficha de Líder (Card Cinza Padrão) -->
+                <!-- Botão Cadastrar Ficha de Líder -->
                 <button onclick="oansistasManager.openNewOansistaModal(null, 'lider')" class="px-3 py-2 bg-slate-700 hover:bg-slate-800 text-white font-extrabold text-xs rounded-xl shadow-xs transition flex items-center justify-center gap-1 border border-slate-600">
-                  <span>👔</span>
-                  <span class="truncate">+ Líder</span>
+                  <span>+ Líder</span>
                 </button>
               </div>
             </div>
@@ -721,8 +720,8 @@
           <div>
             <label class="block font-bold text-slate-700 uppercase tracking-wider mb-1">Tipo de Ficha *</label>
             <select id="formOanType" onchange="oansistasManager.handleTypeChange(this.value)" class="w-full px-3 py-2 rounded-lg border border-slate-300 focus:outline-none focus:ring-2 focus:ring-blue-600 font-bold text-xs bg-white">
-              <option value="oansista" selected>👦 Oansista</option>
-              <option value="lider">👔 Líder do Clube</option>
+              <option value="oansista" selected>Oansista</option>
+              <option value="lider">Líder</option>
             </select>
           </div>
           <div id="formOanRoleGroup" class="hidden">
@@ -749,30 +748,21 @@
             <!-- SELEÇÃO DE ANO CONFORME SOLICITADO -->
             <label class="block font-bold text-slate-700 uppercase tracking-wider mb-1">Ano *</label>
             <select id="formOanYear" class="w-full px-3 py-2 rounded-xl border border-slate-300 focus:outline-none focus:ring-2 focus:ring-blue-600 font-semibold text-xs sm:text-sm">
-              <option value="2027" selected>2027</option>
               <option value="2026">2026</option>
+              <option value="2027" selected>2027</option>
               <option value="2028">2028</option>
               <option value="2029">2029</option>
+              <option value="2030">2030</option>
             </select>
           </div>
         </div>
 
-        <div class="grid grid-cols-1 sm:grid-cols-2 gap-2.5">
-          <div>
-            <label class="block font-bold text-slate-700 uppercase tracking-wider mb-1">Clube Pertencente</label>
-            <select id="formOanClub" class="w-full px-3 py-2 rounded-xl border border-slate-300 focus:outline-none focus:ring-2 focus:ring-blue-600 font-semibold text-xs sm:text-sm">
-              <option value="ursinho">Clube Ursinho (4 e 5 anos)</option>
-              <option value="faisca">Clube Faísca (6 a 8 anos)</option>
-              <option value="flama">Clube Flama (9 e 10 anos)</option>
-              <option value="tocha">Clube Tocha (11 e 12 anos)</option>
-              <option value="jv">Clube JV (13 e 14 anos)</option>
-              <option value="vq7">Clube VQ7 (15 a 18 anos)</option>
-            </select>
-          </div>
-          <div>
-            <label class="block font-bold text-slate-700 uppercase tracking-wider mb-1">Telefone / WhatsApp</label>
-            <input type="tel" id="formOanPhone" placeholder="(XX) XXXXX-XXXX" class="w-full px-3 py-2 rounded-xl border border-slate-300 focus:outline-none focus:ring-2 focus:ring-blue-600 font-semibold text-xs sm:text-sm">
-          </div>
+        <!-- CLUBE PERTENCENTE OCULTO (DEFINIDO AUTOMATICAMENTE PELO CLUBE ATIVO) -->
+        <input type="hidden" id="formOanClub" value="flama">
+
+        <div>
+          <label class="block font-bold text-slate-700 uppercase tracking-wider mb-1">Telefone / WhatsApp</label>
+          <input type="tel" id="formOanPhone" placeholder="(XX) XXXXX-XXXX" class="w-full px-3.5 py-2.5 rounded-xl border border-slate-300 focus:outline-none focus:ring-2 focus:ring-blue-600 font-semibold text-xs sm:text-sm">
         </div>
 
         <div>
