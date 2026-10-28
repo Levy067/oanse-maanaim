@@ -1412,7 +1412,7 @@ class OansistasManager {
 
     const isLider = defaultType === "lider";
     const modalTitle = document.getElementById("oansistaModalTitle");
-    if (modalTitle) modalTitle.textContent = isLider ? "Cadastrar Ficha de Líder" : "Cadastrar Novo Oansista";
+    if (modalTitle) modalTitle.textContent = "Nova Ficha";
     
     document.getElementById("formOansistaId").value = "";
     document.getElementById("formOanName").value = "";
