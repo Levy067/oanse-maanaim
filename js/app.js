@@ -737,4 +737,5 @@ class OanseApp {
 let oanseApp;
 window.addEventListener("DOMContentLoaded", () => {
   oanseApp = new OanseApp();
+  window.oanseApp = oanseApp;
 });

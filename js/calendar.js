@@ -438,4 +438,5 @@ class OanseCalendar {
 let oanseCalendar;
 window.addEventListener("DOMContentLoaded", () => {
   oanseCalendar = new OanseCalendar();
+  window.oanseCalendar = oanseCalendar;
 });

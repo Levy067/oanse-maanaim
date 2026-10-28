@@ -1531,4 +1531,5 @@ class OansistasManager {
 let oansistasManager;
 window.addEventListener("DOMContentLoaded", () => {
   oansistasManager = new OansistasManager();
+  window.oansistasManager = oansistasManager;
 });

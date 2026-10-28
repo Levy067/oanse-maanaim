@@ -121,10 +121,9 @@ class FirebaseSyncManager {
         } else {
           // Documento na nuvem ainda não existe: envia os dados iniciais locais para criar o banco
           console.log("[Firebase] Banco inicial vazio na nuvem. Enviando dados padrão iniciais...");
-          this.saveToCloud({
-            oansistas: window.oansistasManager ? window.oansistasManager.oansistas : null,
-            events: window.oanseCalendar ? window.oanseCalendar.events : null
-          });
+          setTimeout(() => {
+            this.saveToCloud();
+          }, 300);
         }
       },
       (error) => {
@@ -147,8 +146,30 @@ class FirebaseSyncManager {
           lastUpdated: firebase.firestore.FieldValue.serverTimestamp()
         };
 
-        if (payload.oansistas) updatePayload.oansistas = payload.oansistas;
-        if (payload.events) updatePayload.events = payload.events;
+        let oData = payload?.oansistas;
+        if (!oData && window.oansistasManager) oData = window.oansistasManager.oansistas;
+        if (!oData) {
+          try {
+            const cached = localStorage.getItem("oanse_oansistas_maanaim");
+            if (cached) oData = JSON.parse(cached);
+          } catch(e) {}
+        }
+
+        let eData = payload?.events;
+        if (!eData && window.oanseCalendar) eData = window.oanseCalendar.events;
+        if (!eData) {
+          try {
+            const cachedE = localStorage.getItem("oanse_events_2027");
+            if (cachedE) eData = JSON.parse(cachedE);
+          } catch(e) {}
+        }
+
+        if (oData && Array.isArray(oData) && oData.length > 0) {
+          updatePayload.oansistas = JSON.parse(JSON.stringify(oData));
+        }
+        if (eData && Array.isArray(eData) && eData.length > 0) {
+          updatePayload.events = JSON.parse(JSON.stringify(eData));
+        }
 
         await this.docRef.set(updatePayload, { merge: true });
         console.log("[Firebase] Sincronização em nuvem concluída com sucesso!");
