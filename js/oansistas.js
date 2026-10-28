@@ -158,7 +158,7 @@ class OansistasManager {
           "2027-02-20": "P"
         },
         sections: {
-          pi_ursinho: [1, 2],
+
           abraco: [1, 2, 3]
         },
         bonusActivities: {
@@ -189,7 +189,7 @@ class OansistasManager {
           "2027-02-13": "P"
         },
         sections: {
-          pi_ursinho: [1, 2],
+
           abraco: [1, 2, 3, 4, 5, 6],
           dia_especial: [1]
         },
@@ -959,13 +959,7 @@ class OansistasManager {
     const freqPercent = totalRegistros > 0 ? Math.round((totalPresencas / totalRegistros) * 100) : 100;
 
     const isUrsinho = oan.club === "ursinho";
-    let categoriesToRender = isUrsinho ? URSINHO_CATEGORIES : SECTION_CATEGORIES;
-    if (isUrsinho && oan.manual === "ursinho_alegria") {
-      const hasPiDone = oan.sections && oan.sections.pi_ursinho && oan.sections.pi_ursinho.length > 0;
-      if (!hasPiDone) {
-        categoriesToRender = URSINHO_CATEGORIES.filter(c => c.id !== "pi_ursinho");
-      }
-    }
+    const categoriesToRender = isUrsinho ? URSINHO_CATEGORIES : SECTION_CATEGORIES;
 
     // Card cinza padrão para líderes de todos os clubes conforme solicitado
     const cardBorderBg = isLider

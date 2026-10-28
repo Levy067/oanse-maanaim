@@ -19,10 +19,6 @@ const SECTION_CATEGORIES = [
 
 // Seções específicas para o Clube Ursinho (além das padrões)
 const URSINHO_CATEGORIES = [
-  { id: "pi_ursinho", label: "Prova de Ingresso Ursinho", items: [
-    { num: 1, label: "PI Seção A", val: 0.5 },
-    { num: 2, label: "PI Seção B", val: 1.0 }
-  ]},
   { id: "abraco", label: "Abraço do Ursinho (1 ao 24)", max: 24, short: "Abraço", legend: "Abraço do Ursinho" },
   { id: "dia_especial", label: "Dia Especial (1 ao 6)", max: 6, short: "Dia Esp.", legend: "Dia Especial" }
 ];
@@ -35,9 +31,6 @@ const MANUALS_RULES = {
     clubId: "ursinho",
     defaultVal: 0.5,
     custom: {
-      // Prova de Ingresso
-      "pi_ursinho_1": 0.5, // PI Seção A - T$0.5
-      "pi_ursinho_2": 1.0, // PI Seção B - T$1.0
       // Abraço do Ursinho (1 ao 24)
       "abraco_1": 0.5,
       "abraco_2": 0.5,
