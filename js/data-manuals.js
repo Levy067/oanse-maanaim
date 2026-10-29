@@ -74,13 +74,13 @@ const MANUALS_RULES = {
       "abraco_1": 0.5,
       "abraco_2": 0.5,
       "abraco_3": 1.0,     // Seção 3 - T$1.0
-      "abraco_4": 0.5,     // Seção 4 - T$0.5
-      "abraco_5": 0.5,     // Seção 5 - T$0.5
+      "abraco_4": 2.0,     // Seção 4 - T$2.0
+      "abraco_5": 1.5,     // Seção 5 - T$1.5
       "abraco_6": 0.5,
       "abraco_7": 0.5,
       "abraco_8": 0.5,
       "abraco_9": 0.5,
-      "abraco_10": 1.0,    // Seção 10 - T$1.0
+      "abraco_10": 0.5,
       "abraco_11": 0.5,
       "abraco_12": 0.5,
       "abraco_13": 0.5,
