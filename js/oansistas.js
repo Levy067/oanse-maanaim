@@ -959,7 +959,13 @@ class OansistasManager {
     const freqPercent = totalRegistros > 0 ? Math.round((totalPresencas / totalRegistros) * 100) : 100;
 
     const isUrsinho = oan.club === "ursinho";
-    const categoriesToRender = isUrsinho ? URSINHO_CATEGORIES : SECTION_CATEGORIES;
+    const isFlama = oan.club === "flama";
+    let categoriesToRender = SECTION_CATEGORIES;
+    if (isUrsinho) {
+      categoriesToRender = URSINHO_CATEGORIES;
+    } else if (isFlama) {
+      categoriesToRender = SECTION_CATEGORIES.filter(c => !["t2", "t3", "t4"].includes(c.id));
+    }
 
     // Card cinza padrão para líderes de todos os clubes conforme solicitado
     const cardBorderBg = isLider
@@ -1283,8 +1289,9 @@ class OansistasManager {
         `;
       }).join("");
     } else {
-      const max = cat.max || 17;
       const manualKey = oan.manual || (oan.club === "ursinho" ? "ursinho_amor" : `${oan.club}_default`);
+      const manualRule = typeof MANUALS_RULES !== "undefined" ? MANUALS_RULES[manualKey] : null;
+      const max = (manualRule && manualRule.categoryMax && manualRule.categoryMax[cat.id]) || cat.max || 17;
 
       buttonsHtml = Array.from({ length: max }, (_, idx) => idx + 1).map(num => {
         const isDone = completedNumbers.includes(num);

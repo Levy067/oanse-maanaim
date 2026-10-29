@@ -5,8 +5,8 @@
 // T = Atividade (T1, T2, T3, T4)
 
 const SECTION_CATEGORIES = [
-  { id: "pi", label: "Prova de Ingresso", max: 9, short: "PI", legend: "Prova de Ingresso" },
-  { id: "grau", label: "Grau", max: 12, short: "Grau", legend: "Grau de Memorização" },
+  { id: "pi", label: "Prova de Ingresso", max: 12, short: "PI", legend: "Prova de Ingresso" },
+  { id: "grau", label: "Grau", max: 13, short: "Grau", legend: "Grau de Memorização" },
   { id: "e1", label: "Exercício Bíblico 1 (E1)", max: 17, short: "E1", legend: "Exercício Bíblico 1" },
   { id: "e2", label: "Exercício Bíblico 2 (E2)", max: 17, short: "E2", legend: "Exercício Bíblico 2" },
   { id: "e3", label: "Exercício Bíblico 3 (E3)", max: 17, short: "E3", legend: "Exercício Bíblico 3" },
@@ -150,26 +150,108 @@ const MANUALS_RULES = {
   "flama_sabia": {
     name: "Manual Sabiá",
     clubId: "flama",
-    defaultVal: 0.5,
+    defaultVal: 0.0,
+    categoryMax: {
+      pi: 12,
+      grau: 12,
+      e1: 12,
+      e2: 12,
+      e3: 12,
+      e4: 12,
+      t1: 1
+    },
     custom: {
-      "pi_2": 0.5, "pi_3": 0.5, "pi_4": 1.0, "pi_5": 1.0,
-      "grau_5": 0.5, "grau_6": 1.0, "grau_7": 1.5,
-      "e1_5": 1.0, "e1_7": 1.0, "e1_8": 1.5,
-      "e2_4": 1.5, "e2_5": 1.5, "e2_6": 1.0, "e2_8": 1.5,
-      "e3_3": 0.5, "e3_5": 1.0, "e3_6": 1.0,
-      "e4_2": 0.5, "e4_3": 1.0, "e4_4": 1.0, "e4_6": 1.5, "e4_7": 1.0
+      // Prova de Ingresso
+      "pi_2": 0.5,
+      "pi_3": 0.5,
+      "pi_4": 1.0,
+      "pi_5": 1.0,
+      // Grau
+      "grau_5": 0.5,
+      "grau_6": 1.0,
+      "grau_7": 1.5,
+      // E1
+      "e1_5": 1.0,
+      "e1_7": 1.0,
+      "e1_8": 1.5,
+      // E2
+      "e2_4": 1.5,
+      "e2_5": 1.5,
+      "e2_6": 1.0,
+      "e2_8": 1.5,
+      // E3
+      "e3_3": 0.5,
+      "e3_5": 1.0,
+      "e3_6": 1.0,
+      // E4
+      "e4_2": 0.5,
+      "e4_3": 1.0,
+      "e4_4": 1.0,
+      "e4_6": 1.5,
+      "e4_7": 1.0,
+      // T1
+      "t1_1": 2.0
     }
   },
   "flama_aguia": {
     name: "Manual Águia",
     clubId: "flama",
-    defaultVal: 0.5,
+    defaultVal: 0.0,
+    categoryMax: {
+      pi: 12,
+      grau: 13,
+      e1: 12,
+      e2: 12,
+      e3: 12,
+      e4: 12,
+      t1: 3
+    },
     custom: {
-      "grau_3": 0.5, "grau_4": 1.5, "grau_5": 2.0, "grau_6": 1.5, "grau_7": 1.0,
-      "e1_6": 1.0, "e1_7": 1.5, "e1_8": 1.0,
-      "e2_3": 1.5, "e2_4": 2.0, "e2_5": 1.5, "e2_7": 1.5, "e2_8": 1.0,
-      "e3_4": 2.0, "e3_5": 1.5, "e3_6": 1.5, "e3_8": 1.0, "e3_9": 1.0, "e3_10": 1.5,
-      "e4_4": 1.5, "e4_7": 2.0, "e4_8": 1.0, "e4_9": 1.0, "e4_10": 2.5
+      // Prova de Ingresso
+      "pi_2": 0.5,
+      "pi_3": 0.5,
+      "pi_4": 1.0,
+      "pi_5": 1.0,
+      // Grau (1 ao 13 - T$0.5 cada)
+      "grau_1": 0.5,
+      "grau_2": 0.5,
+      "grau_3": 0.5,
+      "grau_4": 0.5,
+      "grau_5": 0.5,
+      "grau_6": 0.5,
+      "grau_7": 0.5,
+      "grau_8": 0.5,
+      "grau_9": 0.5,
+      "grau_10": 0.5,
+      "grau_11": 0.5,
+      "grau_12": 0.5,
+      "grau_13": 0.5,
+      // E1
+      "e1_6": 1.0,
+      "e1_7": 1.5,
+      "e1_8": 1.0,
+      // E2
+      "e2_3": 1.5,
+      "e2_5": 1.5,
+      "e2_7": 1.5,
+      "e2_8": 1.0,
+      // E3
+      "e3_4": 2.0,
+      "e3_5": 1.5,
+      "e3_6": 1.5,
+      "e3_8": 1.0,
+      "e3_9": 1.0,
+      "e3_10": 1.5,
+      // E4
+      "e4_4": 1.5,
+      "e4_7": 2.0,
+      "e4_8": 1.0,
+      "e4_9": 1.0,
+      "e4_10": 2.5,
+      // T1
+      "t1_1": 0.5,
+      "t1_2": 1.0,
+      "t1_3": 1.5
     }
   },
 
