@@ -294,22 +294,58 @@ class OanseApp {
     if (title) title.textContent = `Manuais do Clube • ${club.fullName}`;
 
     if (listContainer) {
-      listContainer.innerHTML = `
-        <div class="bg-slate-50 dark:bg-slate-900/60 p-8 sm:p-12 rounded-3xl border-2 border-dashed border-slate-300 dark:border-slate-700 text-center flex flex-col items-center justify-center my-3">
-          <div class="w-16 h-16 rounded-2xl bg-blue-50 dark:bg-blue-950/50 text-blue-500 dark:text-blue-400 flex items-center justify-center mb-4 shadow-xs">
-            <svg class="w-8 h-8" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.8" d="M12 6.253v13m0-13C10.832 5.477 9.246 5 7.5 5S4.168 5.477 3 6.253v13C4.168 18.477 5.754 18 7.5 18s3.332.477 4.5 1.253m0-13C13.168 5.477 14.754 5 16.5 5c1.747 0 3.332.477 4.5 1.253v13C19.832 18.477 18.247 18 16.5 18c-1.746 0-3.332.477-4.5 1.253"/>
-            </svg>
+      const hasImages = club.manuals && club.manuals.some(m => m.image);
+
+      if (hasImages) {
+        listContainer.innerHTML = `
+          <div class="grid grid-cols-1 md:grid-cols-2 gap-5 sm:gap-6 my-2">
+            ${club.manuals.map(manual => `
+              <div class="bg-gradient-to-b from-slate-50 to-white dark:from-slate-800/90 dark:to-slate-900 rounded-3xl p-5 sm:p-6 border border-slate-200/90 dark:border-slate-700 shadow-md hover:shadow-xl transition-all duration-300 flex flex-col items-center text-center group">
+                
+                <!-- Imagem do Manual com Fundo Transparente -->
+                <div class="relative w-full flex items-center justify-center py-3 px-2 min-h-[300px] sm:min-h-[340px]">
+                  <img src="${manual.image}" alt="${manual.name}" 
+                       class="max-h-[310px] sm:max-h-[350px] w-auto object-contain filter drop-shadow-[0_12px_22px_rgba(0,0,0,0.22)] group-hover:scale-102 group-hover:-translate-y-1 transition duration-300 pointer-events-none select-none">
+                </div>
+
+                <!-- Detalhes do Manual -->
+                <div class="w-full mt-3 pt-3 border-t border-slate-100 dark:border-slate-700/60 flex flex-col items-center">
+                  <span class="inline-flex items-center gap-1.5 px-3 py-1 rounded-full text-[11px] font-extrabold uppercase tracking-wider text-blue-700 bg-blue-100 dark:text-blue-300 dark:bg-blue-950/70 mb-2">
+                    <svg class="w-3.5 h-3.5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 6.253v13m0-13C10.832 5.477 9.246 5 7.5 5S4.168 5.477 3 6.253v13C4.168 18.477 5.754 18 7.5 18s3.332.477 4.5 1.253m0-13C13.168 5.477 14.754 5 16.5 5c1.747 0 3.332.477 4.5 1.253v13C19.832 18.477 18.247 18 16.5 18c-1.746 0-3.332.477-4.5 1.253"/></svg>
+                    ${manual.ageRange || `${club.fullName}`}
+                  </span>
+                  
+                  <h4 class="text-xl font-black text-slate-900 dark:text-white tracking-tight mb-2">
+                    ${manual.name}
+                  </h4>
+                  
+                  <p class="text-xs text-slate-600 dark:text-slate-300 leading-relaxed max-w-sm">
+                    ${manual.desc || "Estudo bíblico, seções doutrinárias e versículos de memorização."}
+                  </p>
+                </div>
+
+              </div>
+            `).join('')}
           </div>
-          <h4 class="text-xl font-black text-slate-800 dark:text-white mb-2">Sem dados para exibir</h4>
-          <p class="text-xs sm:text-sm text-slate-500 dark:text-slate-400 max-w-md mx-auto leading-relaxed">
-            As informações e conteúdos dos manuais do ${club.fullName} serão disponibilizados futuramente.
-          </p>
-          <div class="mt-4 px-3.5 py-1.5 rounded-full bg-slate-200/80 dark:bg-slate-800 text-[11px] font-bold text-slate-600 dark:text-slate-300">
-            Aguardando material dos manuais
+        `;
+      } else {
+        listContainer.innerHTML = `
+          <div class="bg-slate-50 dark:bg-slate-900/60 p-8 sm:p-12 rounded-3xl border-2 border-dashed border-slate-300 dark:border-slate-700 text-center flex flex-col items-center justify-center my-3">
+            <div class="w-16 h-16 rounded-2xl bg-blue-50 dark:bg-blue-950/50 text-blue-500 dark:text-blue-400 flex items-center justify-center mb-4 shadow-xs">
+              <svg class="w-8 h-8" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.8" d="M12 6.253v13m0-13C10.832 5.477 9.246 5 7.5 5S4.168 5.477 3 6.253v13C4.168 18.477 5.754 18 7.5 18s3.332.477 4.5 1.253m0-13C13.168 5.477 14.754 5 16.5 5c1.747 0 3.332.477 4.5 1.253v13C19.832 18.477 18.247 18 16.5 18c-1.746 0-3.332.477-4.5 1.253"/>
+              </svg>
+            </div>
+            <h4 class="text-xl font-black text-slate-800 dark:text-white mb-2">Sem dados para exibir</h4>
+            <p class="text-xs sm:text-sm text-slate-500 dark:text-slate-400 max-w-md mx-auto leading-relaxed">
+              As informações e conteúdos dos manuais do ${club.fullName} serão disponibilizados futuramente.
+            </p>
+            <div class="mt-4 px-3.5 py-1.5 rounded-full bg-slate-200/80 dark:bg-slate-800 text-[11px] font-bold text-slate-600 dark:text-slate-300">
+              Aguardando material dos manuais
+            </div>
           </div>
-        </div>
-      `;
+        `;
+      }
     }
 
     modal?.classList.remove("hidden");

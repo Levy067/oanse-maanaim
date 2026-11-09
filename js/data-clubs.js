@@ -129,8 +129,20 @@ const CLUBS_DATA = {
     password: "tocha2027",
     description: "O Clube Tocha conta com a participação dos adolescentes de 11 e 12 anos e seu lema é \"O outro jovem para Cristo\". 💙\n\nOs manuais deste clube são dois: Carneiro e Leão. Durante dois anos, nossos tochas são ensinados e motivados a praticar a Palavra de Deus, tendo Cristo como alvo de vida!\n\nNo Oanse, aprendemos e propagamos a verdade de que devemos refletir para o mundo, dia após dia, o brilho do nosso Salvador Jesus.",
     manuals: [
-      { id: "carneiro", name: "Manual Carneiro", desc: "Estudo de sacrifício, redenção em Cristo, doutrinas bíblicas e Prova de Ingresso Tocha." },
-      { id: "leao", name: "Manual Leão", desc: "Coragem na fé, fidelidade sob pressão, profecias e testemunho cristão autêntico." }
+      {
+        id: "carneiro",
+        name: "Manual Carneiro",
+        image: "assets/img/manual-tocha-carneiro.png",
+        ageRange: "1º Ano • 11 anos",
+        desc: "Estudo de sacrifício, redenção em Cristo, doutrinas bíblicas e Prova de Ingresso Tocha."
+      },
+      {
+        id: "leao",
+        name: "Manual Leão",
+        image: "assets/img/manual-tocha-leao.png",
+        ageRange: "2º Ano • 12 anos",
+        desc: "Coragem na fé, fidelidade sob pressão, profecias e testemunho cristão autêntico."
+      }
     ],
     uniform: {
       title: "Camiseta Oficial Azul Tocha",
