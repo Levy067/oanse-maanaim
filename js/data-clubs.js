@@ -17,8 +17,20 @@ const CLUBS_DATA = {
     password: "ursinho2027",
     description: "O Clube Ursinhos é dedicado para crianças de 4 e 5 anos e seu lema é \"Jesus me ama!\". 🐻❤️\n\nAssim como os nomes de seus manuais, Amor e Alegria não faltam neste clube com os pequeninos que fazem parte dele!\n\nNo Ministério Oanse, desde bem novos, eles têm o privilégio de aprenderem a Palavra de Deus e são ensinados da necessidade de crer em Jesus para a salvação, amá-lo e reconhecê-lo como único caminho para a vida eterna!",
     manuals: [
-      { id: "amor", name: "Manual Amor", desc: "Primeiro manual do Ursinho com histórias de criação, amor de Deus e versículos fundamentais." },
-      { id: "alegria", name: "Manual Alegria", desc: "Segundo manual com ênfase na obediência alegre e o discipulado inicial." }
+      {
+        id: "amor",
+        name: "Manual Amor",
+        image: "assets/img/manual-ursinho-amor.png",
+        ageRange: "1º Ano – 4 anos",
+        desc: "Primeiro manual do Ursinho com histórias de criação, amor de Deus e versículos fundamentais."
+      },
+      {
+        id: "alegria",
+        name: "Manual Alegria",
+        image: "assets/img/manual-ursinho-alegria.png",
+        ageRange: "2º Ano – 5 anos",
+        desc: "Segundo manual com ênfase na obediência alegre e o discipulado inicial."
+      }
     ],
     uniform: {
       title: "Camiseta Oficial Vermelha Ursinho",
