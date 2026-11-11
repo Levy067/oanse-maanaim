@@ -1,4 +1,4 @@
-// Controlador Principal da Aplicação OANSE Maanaim
+﻿// Controlador Principal da Aplicação OANSE Maanaim
 
 class OanseApp {
   constructor() {
@@ -194,6 +194,23 @@ class OanseApp {
     const manualsSummaryEl = document.getElementById("detailClubManualsSummary");
     if (manualsSummaryEl) {
       manualsSummaryEl.textContent = club.manuals.map(m => m.name).join(" • ");
+    }
+
+    const manualsPreviewEl = document.getElementById("detailClubManualsPreview");
+    if (manualsPreviewEl) {
+      const hasImages = club.manuals && club.manuals.some(m => m.image);
+      if (hasImages) {
+        manualsPreviewEl.innerHTML = club.manuals.filter(m => m.image).map(m => `
+          <div class="flex flex-col items-center group/item text-center">
+            <img src="${m.image}" alt="${m.name}" class="h-24 sm:h-28 w-auto object-contain filter drop-shadow-md group-hover/item:scale-105 transition-transform duration-200 pointer-events-none select-none">
+            <span class="text-[10px] font-extrabold text-slate-700 mt-1">${m.name.replace('Manual ', '')}</span>
+          </div>
+        `).join('');
+        manualsPreviewEl.classList.remove("hidden");
+      } else {
+        manualsPreviewEl.innerHTML = "";
+        manualsPreviewEl.classList.add("hidden");
+      }
     }
 
     // Farda / Uniforme

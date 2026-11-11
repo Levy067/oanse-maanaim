@@ -1,4 +1,4 @@
-// Dados Oficiais dos Clubes OANSE - Igreja Batista Regular Maanaim
+﻿// Dados Oficiais dos Clubes OANSE - Igreja Batista Regular Maanaim
 const CLUBS_DATA = {
   ursinho: {
     id: "ursinho",
@@ -178,8 +178,20 @@ const CLUBS_DATA = {
     password: "jv2027",
     description: "O Clube Jovens Vencedores, também chamado JV, é para adolescentes de 13 e 14 anos e seu lema é: \"Jovens Vencedores para Cristo!\" 🖤\n\nSeus manuais são Sprint e Maratona e é neste clube que nós temos os grupos: Vem ver, Vem seguir e Vem servir. É no JV que nossos adolescentes são estimulados a se fortalecerem em Jesus, vivendo na Palavra de Deus e sendo chamados ao serviço do Reino.\n\nO Ministério Oanse tem sido essencial na vida dos jovens que estão crescendo não apenas em estatura, mas também no conhecimento e na fé de Cristo nesta caminhada trilhada com ele.",
     manuals: [
-      { id: "sprint", name: "Manual Sprint", desc: "Corrida inicial: estudos temáticos, memorização de passagens e leitura de livros bíblicos inteiros." },
-      { id: "maratona", name: "Manual Maratona", desc: "Perseverança na carreira cristã com foco em apologética, liderança e ética cristã." }
+      {
+        id: "sprint",
+        name: "Manual Sprint",
+        image: "assets/img/manual-jv-sprint.png",
+        ageRange: "1º Ano – 13 anos",
+        desc: "Corrida inicial: estudos temáticos, memorização de passagens e leitura de livros bíblicos inteiros."
+      },
+      {
+        id: "maratona",
+        name: "Manual Maratona",
+        image: "assets/img/manual-jv-maratona.png",
+        ageRange: "2º Ano – 14 anos",
+        desc: "Perseverança na carreira cristã com foco em apologética, liderança e ética cristã."
+      }
     ],
     uniform: {
       title: "Camiseta Oficial Preta JV",

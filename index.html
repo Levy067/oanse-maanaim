@@ -1,4 +1,4 @@
-<!DOCTYPE html>
+﻿<!DOCTYPE html>
 <html lang="pt-BR">
 <head>
   <meta charset="UTF-8">
@@ -291,6 +291,9 @@
               <h5 id="detailClubManualsTitle" class="text-sm font-bold text-slate-800 mb-1">Manuais de Estudo Bíblico</h5>
               <p id="detailClubManualsDetails" class="text-xs text-slate-600 leading-relaxed mb-3">Livros de estudo bíblico, versículos para memorizar e seções faladas pelos oansistas.</p>
               
+              <!-- Pré-visualização dos Manuais quando disponíveis -->
+              <div id="detailClubManualsPreview" class="hidden mb-3 flex items-center justify-center gap-4 bg-slate-50 rounded-2xl p-3 border border-slate-100 cursor-pointer hover:bg-slate-100 transition" onclick="oanseApp.openManualsModal()" title="Clique para ampliar os manuais"></div>
+
               <!-- Botão Visualizar Manuais do Clube -->
               <button id="btnOpenManualsModal" class="w-full py-2.5 px-4 rounded-xl bg-blue-600 hover:bg-blue-700 text-white font-extrabold text-xs shadow-xs transition flex items-center justify-center gap-2 mb-3">
                 <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 6.253v13m0-13C10.832 5.477 9.246 5 7.5 5S4.168 5.477 3 6.253v13C4.168 18.477 5.754 18 7.5 18s3.332.477 4.5 1.253m0-13C13.168 5.477 14.754 5 16.5 5c1.747 0 3.332.477 4.5 1.253v13C19.832 18.477 18.247 18 16.5 18c-1.746 0-3.332.477-4.5 1.253"/></svg>
